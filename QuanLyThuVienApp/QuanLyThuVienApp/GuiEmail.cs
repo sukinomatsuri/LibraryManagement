@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
@@ -11,14 +11,15 @@ namespace QuanLyThuVienApp
 {
     public static class GuiEmail
     {
-        public static string taiKhoan = "thuvienhcmue@gmail.com";
-        public static string matKhau = "vddc dvte zsfn gcwt";
+        public static string taiKhoan = "nhvu2005@gmail.com";
+        public static string matKhau = "rwwp rrag dxte yhii";
 
         public static bool guiEmail(string emailTo, string content)
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
             var fromAddress = new MailAddress(taiKhoan, "Quan ly thu vien");
             var toAddress = new MailAddress(emailTo, emailTo);
-            string fromPassword = matKhau;
+            string fromPassword = matKhau.Replace(" ", "");
             string subject = "Thông báo hệ thống";
             string body = content;
 
@@ -44,7 +45,8 @@ namespace QuanLyThuVienApp
                 return true;
             }catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string error = ex.InnerException != null ? ex.Message + "\nChi tiết: " + ex.InnerException.Message : ex.Message;
+                MessageBox.Show(error, "Thông báo lỗi gửi mail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

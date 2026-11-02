@@ -31,9 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInfor));
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -60,9 +58,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox10);
             this.groupBox1.Controls.Add(this.textBox9);
-            this.groupBox1.Controls.Add(this.textBox8);
             this.groupBox1.Controls.Add(this.textBox7);
             this.groupBox1.Controls.Add(this.textBox6);
             this.groupBox1.Controls.Add(this.textBox3);
@@ -82,17 +78,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách thành viên";
             // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(316, 248);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(132, 26);
-            this.textBox10.TabIndex = 5;
-            this.textBox10.Text = "49.01.103.031";
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(316, 202);
@@ -101,19 +86,8 @@
             this.textBox9.ReadOnly = true;
             this.textBox9.Size = new System.Drawing.Size(132, 26);
             this.textBox9.TabIndex = 4;
-            this.textBox9.Text = "49.01.103.021";
+            this.textBox9.Text = "49.01.104.175";
             this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(63, 248);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(132, 26);
-            this.textBox8.TabIndex = 3;
-            this.textBox8.Text = "Lê Minh Huy";
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox7
             // 
@@ -121,9 +95,9 @@
             this.textBox7.Margin = new System.Windows.Forms.Padding(4);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(132, 26);
+            this.textBox7.Size = new System.Drawing.Size(179, 26);
             this.textBox7.TabIndex = 2;
-            this.textBox7.Text = "Hoàng Hữu Đức";
+            this.textBox7.Text = "Nguyễn Thị Vinh";
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox6
@@ -134,7 +108,7 @@
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(132, 26);
             this.textBox6.TabIndex = 1;
-            this.textBox6.Text = "49.01.103.090";
+            this.textBox6.Text = "49.01.104.024";
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox3
@@ -143,9 +117,9 @@
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(138, 26);
+            this.textBox3.Size = new System.Drawing.Size(179, 26);
             this.textBox3.TabIndex = 1;
-            this.textBox3.Text = "Trần Nguyên Tú";
+            this.textBox3.Text = "Nguyễn Thái Dương";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox5
@@ -156,7 +130,7 @@
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(132, 26);
             this.textBox5.TabIndex = 1;
-            this.textBox5.Text = "49.01.103.022";
+            this.textBox5.Text = "49.01.103.093";
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox2
@@ -165,10 +139,11 @@
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(132, 26);
+            this.textBox2.Size = new System.Drawing.Size(179, 26);
             this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "Nguyễn Mỹ Hà";
+            this.textBox2.Text = "Đỗ Cao Thuý Vi";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox4
             // 
@@ -178,7 +153,7 @@
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(132, 26);
             this.textBox4.TabIndex = 1;
-            this.textBox4.Text = "49.01.103.001";
+            this.textBox4.Text = "49.01.104.177";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox1
@@ -187,9 +162,9 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(163, 26);
+            this.textBox1.Size = new System.Drawing.Size(179, 26);
             this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "Lê Nguyễn Hoài An";
+            this.textBox1.Text = "Nguyễn Hưng Vũ";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
@@ -259,9 +234,7 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox7;
     }
 }
