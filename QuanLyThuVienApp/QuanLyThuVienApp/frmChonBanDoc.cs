@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +26,7 @@ namespace QuanLyThuVienApp
 
         private void loadDuLieu()
         {
+            // Load danh sach ban doc hop le de cho muon sach
             QLTVEntities db  = new QLTVEntities();
             dgvBanDoc.DataSource = db.NguoiDungs.Where(p => p.TrangThaiXacThuc == true && p.QuyenHan == "user" && p.BiKhoa == false)
                 .Select(p => new
@@ -33,7 +34,7 @@ namespace QuanLyThuVienApp
                     MaBanDoc = "BD" + p.ID,
                     TenBanDoc = p.HoTen,
                     p.Email,
-                    CoTheMuon = 10 - p.SoSachMuon
+                    CoTheMuon = 10 - (p.SoSachMuon ?? 0)
                 }).ToList();
 
             if (dgvBanDoc.Rows.Count > 0)
