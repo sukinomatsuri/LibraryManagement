@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,6 +37,7 @@ namespace QuanLyThuVienApp
 
         private void btnGiaHan_Click(object sender, EventArgs e)
         {
+            // Xu ly gia han them ngay tra sach
             int days = int.Parse(numericUpDown1.Value.ToString());
             if(days == 0)
             {
@@ -46,6 +47,7 @@ namespace QuanLyThuVienApp
 
             QLTVEntities db = new QLTVEntities();
             PhieuMuon phieuMuon = db.PhieuMuons.Where(p=>p.MaPhieu == maPhieu).FirstOrDefault();
+            if (phieuMuon == null || !phieuMuon.HanTra.HasValue) return;
 
             DateTime hanTra = phieuMuon.HanTra.Value; 
             phieuMuon.HanTra = hanTra.AddDays(days);
