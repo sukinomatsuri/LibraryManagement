@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +30,7 @@ namespace QuanLyThuVienApp
 
         private void loadDuLieu()
         {
+            // Load danh sach doc gia de quan ly
             QLTVEntities db = new QLTVEntities();
             dgvBanDoc.DataSource = db.NguoiDungs.Where(p => p.QuyenHan == "user" && p.TrangThaiXacThuc == true && p.BiKhoa == false)
                 .Select(p => new
