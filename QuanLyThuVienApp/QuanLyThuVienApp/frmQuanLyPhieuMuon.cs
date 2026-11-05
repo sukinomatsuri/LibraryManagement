@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -49,13 +49,15 @@ namespace QuanLyThuVienApp
                     p.MaPhieu,
                     IDBanDoc = "DB" + p.IDBanDoc,
                     TenBanDoc = p.NguoiDung.HoTen,
-                    p.NgayDangKyMuon
+                    p.NgayDangKyMuon,
+                    TrangThai = "Đăng ký"
                 }).ToList();
 
             dgvPhieuMuon.Columns["MaPhieu"].HeaderText = "Mã phiếu";
             dgvPhieuMuon.Columns["IDBanDoc"].HeaderText = "Mã bạn đọc";
             dgvPhieuMuon.Columns["TenBanDoc"].HeaderText = "Tên bạn đọc";
-            dgvPhieuMuon.Columns["NgayDangKyMuon"].HeaderText = "Ngày đăng ký";
+            dgvPhieuMuon.Columns["NgayDangKyMuon"].HeaderText = "Ngày ĐK";
+            dgvPhieuMuon.Columns["TrangThai"].HeaderText = "Trạng thái";
             dgvPhieuMuon.Columns["NgayDangKyMuon"].DefaultCellStyle.Format = "dd/MM/yyyy";
 
             dgvPhieuMuon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -83,6 +85,7 @@ namespace QuanLyThuVienApp
                     TenBanDoc = p.NguoiDung.HoTen,
                     p.NgayMuon,
                     p.HanTra,
+                    TrangThai = (p.HanTra.HasValue && DateTime.Now.Date > p.HanTra.Value.Date) ? "Quá hạn" : "Đang mượn"
                 }).ToList();
 
             dgvPhieuMuon.Columns["MaPhieu"].HeaderText = "Mã phiếu";
@@ -90,6 +93,7 @@ namespace QuanLyThuVienApp
             dgvPhieuMuon.Columns["TenBanDoc"].HeaderText = "Tên bạn đọc";
             dgvPhieuMuon.Columns["NgayMuon"].HeaderText = "Ngày mượn";
             dgvPhieuMuon.Columns["HanTra"].HeaderText = "Hạn trả";
+            dgvPhieuMuon.Columns["TrangThai"].HeaderText = "Trạng thái";
             dgvPhieuMuon.Columns["NgayMuon"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dgvPhieuMuon.Columns["HanTra"].DefaultCellStyle.Format = "dd/MM/yyyy";
 
@@ -124,7 +128,8 @@ namespace QuanLyThuVienApp
                     IDBanDoc = "DB" + p.IDBanDoc,
                     TenBanDoc = p.NguoiDung.HoTen,
                     p.NgayMuon,
-                    p.NgayTra
+                    p.NgayTra,
+                    TrangThai = "Đã trả"
                 }).ToList();
 
             dgvPhieuMuon.Columns["MaPhieu"].HeaderText = "Mã phiếu";
@@ -132,6 +137,7 @@ namespace QuanLyThuVienApp
             dgvPhieuMuon.Columns["TenBanDoc"].HeaderText = "Tên bạn đọc";
             dgvPhieuMuon.Columns["NgayMuon"].HeaderText = "Ngày mượn";
             dgvPhieuMuon.Columns["NgayTra"].HeaderText = "Ngày trả";
+            dgvPhieuMuon.Columns["TrangThai"].HeaderText = "Trạng thái";
             dgvPhieuMuon.Columns["NgayMuon"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dgvPhieuMuon.Columns["NgayTra"].DefaultCellStyle.Format = "dd/MM/yyyy";
 
@@ -219,11 +225,57 @@ namespace QuanLyThuVienApp
 
         private void dgvPhieuMuon_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgvPhieuMuon.Columns[e.ColumnIndex].Name == "HanTra")
+            if (e.RowIndex < 0 || e.RowIndex >= dgvPhieuMuon.Rows.Count) return;
+
+            var row = dgvPhieuMuon.Rows[e.RowIndex];
+            string trangThai = "";
+
+            if (dgvPhieuMuon.Columns.Contains("TrangThai") && row.Cells["TrangThai"].Value != null)
             {
-                DateTime hanTra = (DateTime)dgvPhieuMuon.Rows[e.RowIndex].Cells["HanTra"].Value;
-                if (DateTime.Now.Date > hanTra.Date)
-                    dgvPhieuMuon.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
+                trangThai = row.Cells["TrangThai"].Value.ToString();
+            }
+            else if (dgvPhieuMuon.Columns.Contains("HanTra") && row.Cells["HanTra"].Value != null)
+            {
+                DateTime hanTra = (DateTime)row.Cells["HanTra"].Value;
+                trangThai = (DateTime.Now.Date > hanTra.Date) ? "Quá hạn" : "Đang mượn";
+            }
+
+            if (trangThai == "Quá hạn")
+            {
+                row.DefaultCellStyle.ForeColor = Color.Red;
+                row.DefaultCellStyle.SelectionForeColor = Color.Red;
+                if (dgvPhieuMuon.Columns[e.ColumnIndex].Name == "TrangThai")
+                {
+                    e.CellStyle.Font = new Font(dgvPhieuMuon.Font, FontStyle.Bold);
+                    e.CellStyle.ForeColor = Color.DarkRed;
+                }
+            }
+            else if (trangThai == "Đang mượn")
+            {
+                row.DefaultCellStyle.ForeColor = Color.FromArgb(0, 102, 204);
+                if (dgvPhieuMuon.Columns[e.ColumnIndex].Name == "TrangThai")
+                {
+                    e.CellStyle.Font = new Font(dgvPhieuMuon.Font, FontStyle.Bold);
+                    e.CellStyle.ForeColor = Color.FromArgb(0, 102, 204);
+                }
+            }
+            else if (trangThai == "Đã trả")
+            {
+                row.DefaultCellStyle.ForeColor = Color.ForestGreen;
+                if (dgvPhieuMuon.Columns[e.ColumnIndex].Name == "TrangThai")
+                {
+                    e.CellStyle.Font = new Font(dgvPhieuMuon.Font, FontStyle.Bold);
+                    e.CellStyle.ForeColor = Color.ForestGreen;
+                }
+            }
+            else if (trangThai == "Đăng ký" || trangThai == "Đăng ký mượn")
+            {
+                row.DefaultCellStyle.ForeColor = Color.DarkOrange;
+                if (dgvPhieuMuon.Columns[e.ColumnIndex].Name == "TrangThai")
+                {
+                    e.CellStyle.Font = new Font(dgvPhieuMuon.Font, FontStyle.Bold);
+                    e.CellStyle.ForeColor = Color.DarkOrange;
+                }
             }
         }
 
