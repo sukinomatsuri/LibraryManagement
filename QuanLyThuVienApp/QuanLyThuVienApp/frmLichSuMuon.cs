@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -203,8 +203,33 @@ namespace QuanLyThuVienApp
 
         private void dgvPhieuMuon_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgvPhieuMuon.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString() == "Quá hạn")
+            if (e.RowIndex < 0 || e.RowIndex >= dgvPhieuMuon.Rows.Count) return;
+
+            string trangThai = dgvPhieuMuon.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString() ?? "";
+            if (trangThai == "Quá hạn")
+            {
                 e.CellStyle.ForeColor = Color.Red;
+                if (dgvPhieuMuon.Columns[e.ColumnIndex].Name == "TrangThai")
+                    e.CellStyle.Font = new Font(dgvPhieuMuon.Font, FontStyle.Bold);
+            }
+            else if (trangThai == "Đang mượn")
+            {
+                e.CellStyle.ForeColor = Color.FromArgb(0, 102, 204);
+                if (dgvPhieuMuon.Columns[e.ColumnIndex].Name == "TrangThai")
+                    e.CellStyle.Font = new Font(dgvPhieuMuon.Font, FontStyle.Bold);
+            }
+            else if (trangThai == "Đã trả")
+            {
+                e.CellStyle.ForeColor = Color.ForestGreen;
+                if (dgvPhieuMuon.Columns[e.ColumnIndex].Name == "TrangThai")
+                    e.CellStyle.Font = new Font(dgvPhieuMuon.Font, FontStyle.Bold);
+            }
+            else if (trangThai == "Đăng ký mượn")
+            {
+                e.CellStyle.ForeColor = Color.DarkOrange;
+                if (dgvPhieuMuon.Columns[e.ColumnIndex].Name == "TrangThai")
+                    e.CellStyle.Font = new Font(dgvPhieuMuon.Font, FontStyle.Bold);
+            }
         }
     }
 }
