@@ -1,4 +1,4 @@
-﻿## Visual Studio
+## Visual Studio
 .vs/
 *.user
 *.userosv
@@ -15,6 +15,7 @@
 [Rr]elease/
 x64/
 x86/
+!**/SqlServerTypes/**
 build/
 bld/
 
