@@ -64,6 +64,8 @@ namespace QuanLyThuVienApp
             this.dgvSach.AllowUserToAddRows = false;
             this.dgvSach.AllowUserToDeleteRows = false;
             this.dgvSach.AllowUserToResizeRows = false;
+            this.dgvSach.AutoGenerateColumns = false;
+            this.dgvSach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSach.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -91,7 +93,7 @@ namespace QuanLyThuVienApp
             this.dgvSach.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSach.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSach.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dgvSach.Location = new System.Drawing.Point(0, 0);
+            this.dgvSach.Location = new System.Drawing.Point(3, 18);
             this.dgvSach.Margin = new System.Windows.Forms.Padding(2);
             this.dgvSach.MultiSelect = false;
             this.dgvSach.Name = "dgvSach";
@@ -99,54 +101,50 @@ namespace QuanLyThuVienApp
             this.dgvSach.RowHeadersVisible = false;
             this.dgvSach.RowHeadersWidth = 51;
             this.dgvSach.RowTemplate.Height = 24;
-            this.dgvSach.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.dgvSach.Size = new System.Drawing.Size(915, 210);
+            this.dgvSach.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvSach.Size = new System.Drawing.Size(504, 324);
             this.dgvSach.TabIndex = 0;
             this.dgvSach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSach_CellClick);
             this.dgvSach.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSach_CellDoubleClick);
             // 
             // MaSach
             // 
-            this.MaSach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.MaSach.DataPropertyName = "MaSach";
+            this.MaSach.FillWeight = 55F;
             this.MaSach.HeaderText = "Mã sách";
-            this.MaSach.MinimumWidth = 6;
+            this.MaSach.MinimumWidth = 45;
             this.MaSach.Name = "MaSach";
             this.MaSach.ReadOnly = true;
-            this.MaSach.Width = 75;
             // 
             // TenSach
             // 
-            this.TenSach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TenSach.DataPropertyName = "TenSach";
-            this.TenSach.FillWeight = 150F;
+            this.TenSach.FillWeight = 135F;
             this.TenSach.HeaderText = "Tên sách";
-            this.TenSach.MinimumWidth = 100;
+            this.TenSach.MinimumWidth = 90;
             this.TenSach.Name = "TenSach";
             this.TenSach.ReadOnly = true;
             // 
             // TenTG
             // 
-            this.TenTG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.TenTG.DataPropertyName = "TenTG";
+            this.TenTG.FillWeight = 85F;
             this.TenTG.HeaderText = "Tác giả";
-            this.TenTG.MinimumWidth = 6;
+            this.TenTG.MinimumWidth = 65;
             this.TenTG.Name = "TenTG";
             this.TenTG.ReadOnly = true;
-            this.TenTG.Width = 78;
             // 
             // TenNXB
             // 
             this.TenNXB.DataPropertyName = "TenNXB";
+            this.TenNXB.FillWeight = 80F;
             this.TenNXB.HeaderText = "Nhà xuất bản";
-            this.TenNXB.MinimumWidth = 6;
+            this.TenNXB.MinimumWidth = 60;
             this.TenNXB.Name = "TenNXB";
             this.TenNXB.ReadOnly = true;
-            this.TenNXB.Width = 90;
             // 
             // TenTheLoai
             // 
-            this.TenTheLoai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.TenTheLoai.DataPropertyName = "TenTheLoai";
             this.TenTheLoai.HeaderText = "Thể Loại";
             this.TenTheLoai.MinimumWidth = 6;
@@ -157,13 +155,12 @@ namespace QuanLyThuVienApp
             // 
             // CoSan
             // 
-            this.CoSan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.CoSan.DataPropertyName = "CoSan";
+            this.CoSan.FillWeight = 40F;
             this.CoSan.HeaderText = "Còn";
-            this.CoSan.MinimumWidth = 6;
+            this.CoSan.MinimumWidth = 35;
             this.CoSan.Name = "CoSan";
             this.CoSan.ReadOnly = true;
-            this.CoSan.Width = 55;
             // 
             // grpDanhSachSach
             // 
@@ -173,7 +170,7 @@ namespace QuanLyThuVienApp
             this.grpDanhSachSach.Location = new System.Drawing.Point(10, 75);
             this.grpDanhSachSach.Margin = new System.Windows.Forms.Padding(2);
             this.grpDanhSachSach.Name = "grpDanhSachSach";
-            this.grpDanhSachSach.Padding = new System.Windows.Forms.Padding(3);
+            this.grpDanhSachSach.Padding = new System.Windows.Forms.Padding(3, 18, 3, 3);
             this.grpDanhSachSach.Size = new System.Drawing.Size(510, 345);
             this.grpDanhSachSach.TabIndex = 8;
             this.grpDanhSachSach.TabStop = false;
@@ -187,7 +184,7 @@ namespace QuanLyThuVienApp
             this.grpSachDangKy.Location = new System.Drawing.Point(530, 75);
             this.grpSachDangKy.Margin = new System.Windows.Forms.Padding(2);
             this.grpSachDangKy.Name = "grpSachDangKy";
-            this.grpSachDangKy.Padding = new System.Windows.Forms.Padding(3);
+            this.grpSachDangKy.Padding = new System.Windows.Forms.Padding(3, 18, 3, 3);
             this.grpSachDangKy.Size = new System.Drawing.Size(375, 345);
             this.grpSachDangKy.TabIndex = 9;
             this.grpSachDangKy.TabStop = false;
@@ -229,6 +226,7 @@ namespace QuanLyThuVienApp
             this.dgvSachMuon.RowHeadersVisible = false;
             this.dgvSachMuon.RowHeadersWidth = 51;
             this.dgvSachMuon.RowTemplate.Height = 24;
+            this.dgvSachMuon.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvSachMuon.Size = new System.Drawing.Size(369, 324);
             this.dgvSachMuon.TabIndex = 9;
             this.dgvSachMuon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSachMuon_CellClick);
@@ -286,7 +284,7 @@ namespace QuanLyThuVienApp
             this.btnLamMoi.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnLamMoi.IconSize = 16;
             this.btnLamMoi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLamMoi.Location = new System.Drawing.Point(642, 39);
+            this.btnLamMoi.Location = new System.Drawing.Point(475, 38);
             this.btnLamMoi.Margin = new System.Windows.Forms.Padding(2);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(85, 26);
@@ -305,7 +303,7 @@ namespace QuanLyThuVienApp
             this.btnTimKiem.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnTimKiem.IconSize = 16;
             this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTimKiem.Location = new System.Drawing.Point(552, 39);
+            this.btnTimKiem.Location = new System.Drawing.Point(384, 38);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(2);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(85, 26);
@@ -326,17 +324,17 @@ namespace QuanLyThuVienApp
             "Tác giả",
             "Nhà xuất bản",
             "Thể loại"});
-            this.cbTimKiem.Location = new System.Drawing.Point(245, 40);
+            this.cbTimKiem.Location = new System.Drawing.Point(115, 39);
             this.cbTimKiem.Margin = new System.Windows.Forms.Padding(2);
             this.cbTimKiem.Name = "cbTimKiem";
-            this.cbTimKiem.Size = new System.Drawing.Size(115, 24);
+            this.cbTimKiem.Size = new System.Drawing.Size(110, 24);
             this.cbTimKiem.TabIndex = 13;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(145, 43);
+            this.label2.Location = new System.Drawing.Point(12, 42);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 16);
@@ -346,10 +344,10 @@ namespace QuanLyThuVienApp
             // txtTimKiem
             // 
             this.txtTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimKiem.Location = new System.Drawing.Point(365, 41);
+            this.txtTimKiem.Location = new System.Drawing.Point(232, 40);
             this.txtTimKiem.Margin = new System.Windows.Forms.Padding(2);
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(180, 22);
+            this.txtTimKiem.Size = new System.Drawing.Size(145, 22);
             this.txtTimKiem.TabIndex = 11;
             // 
             // btnDangKy

@@ -19,30 +19,38 @@ namespace QuanLyThuVienApp
      
         private void frmMuonSach_Load(object sender, EventArgs e)
         {
+            if (cbTimKiem.Items.Count > 1)
+                cbTimKiem.SelectedIndex = 1;
             themNutDGV();
             loadDuLieu();
         }
         private void themNutDGV()
         {
-            // Tạo nút đăng ký
-            DataGridViewButtonColumn nutDangKy = new DataGridViewButtonColumn();
-            nutDangKy.HeaderText = "";
-            nutDangKy.Text = "Đăng ký";
-            nutDangKy.Name = "btnDangKy";
-            nutDangKy.Width = 70;
-            nutDangKy.UseColumnTextForButtonValue = true;
+            if (!dgvSach.Columns.Contains("btnDangKy"))
+            {
+                // Tạo nút đăng ký
+                DataGridViewButtonColumn nutDangKy = new DataGridViewButtonColumn();
+                nutDangKy.HeaderText = "";
+                nutDangKy.Text = "Đăng ký";
+                nutDangKy.Name = "btnDangKy";
+                nutDangKy.FillWeight = 60F;
+                nutDangKy.MinimumWidth = 50;
+                nutDangKy.Width = 60;
+                nutDangKy.UseColumnTextForButtonValue = true;
+                dgvSach.Columns.Add(nutDangKy);
+            }
 
-            // Tạo nút xóa
-            DataGridViewButtonColumn nutXoa = new DataGridViewButtonColumn();
-            nutXoa.HeaderText = "";
-            nutXoa.Text = "Xóa";
-            nutXoa.Name = "btnXoa";
-            nutXoa.Width = 45;
-            nutXoa.UseColumnTextForButtonValue = true;
-
-            // Thêm nút
-            dgvSach.Columns.Add(nutDangKy);
-            dgvSachMuon.Columns.Add(nutXoa);
+            if (!dgvSachMuon.Columns.Contains("btnXoa"))
+            {
+                // Tạo nút xóa
+                DataGridViewButtonColumn nutXoa = new DataGridViewButtonColumn();
+                nutXoa.HeaderText = "";
+                nutXoa.Text = "Xóa";
+                nutXoa.Name = "btnXoa";
+                nutXoa.Width = 45;
+                nutXoa.UseColumnTextForButtonValue = true;
+                dgvSachMuon.Columns.Add(nutXoa);
+            }
         }
 
         private void loadDuLieu()
@@ -159,6 +167,7 @@ namespace QuanLyThuVienApp
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
+            txtTimKiem.Text = "";
             loadDuLieu();
         }
 
