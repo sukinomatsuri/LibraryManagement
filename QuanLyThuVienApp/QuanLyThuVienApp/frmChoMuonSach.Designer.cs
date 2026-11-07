@@ -74,10 +74,10 @@ namespace QuanLyThuVienApp
             this.btnXoaHet.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnXoaHet.IconSize = 19;
             this.btnXoaHet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoaHet.Location = new System.Drawing.Point(560, 448);
+            this.btnXoaHet.Location = new System.Drawing.Point(710, 520);
             this.btnXoaHet.Margin = new System.Windows.Forms.Padding(2);
             this.btnXoaHet.Name = "btnXoaHet";
-            this.btnXoaHet.Size = new System.Drawing.Size(110, 36);
+            this.btnXoaHet.Size = new System.Drawing.Size(125, 42);
             this.btnXoaHet.TabIndex = 25;
             this.btnXoaHet.Text = "Xóa hết";
             this.btnXoaHet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -164,7 +164,7 @@ namespace QuanLyThuVienApp
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(557, 88);
+            this.label1.Location = new System.Drawing.Point(708, 88);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(175, 17);
@@ -228,14 +228,14 @@ namespace QuanLyThuVienApp
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvSachMuon.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvSachMuon.Location = new System.Drawing.Point(560, 112);
+            this.dgvSachMuon.Location = new System.Drawing.Point(710, 112);
             this.dgvSachMuon.Margin = new System.Windows.Forms.Padding(2);
             this.dgvSachMuon.MultiSelect = false;
             this.dgvSachMuon.Name = "dgvSachMuon";
             this.dgvSachMuon.RowHeadersVisible = false;
             this.dgvSachMuon.RowHeadersWidth = 51;
             this.dgvSachMuon.RowTemplate.Height = 24;
-            this.dgvSachMuon.Size = new System.Drawing.Size(375, 325);
+            this.dgvSachMuon.Size = new System.Drawing.Size(465, 395);
             this.dgvSachMuon.TabIndex = 18;
             this.dgvSachMuon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSachMuon_CellClick);
             this.dgvSachMuon.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvSachMuon_CellValidating);
@@ -246,7 +246,7 @@ namespace QuanLyThuVienApp
             this.panel1.Location = new System.Drawing.Point(15, 60);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(528, 424);
+            this.panel1.Size = new System.Drawing.Size(680, 502);
             this.panel1.TabIndex = 17;
             // 
             // dgvSach
@@ -307,8 +307,9 @@ namespace QuanLyThuVienApp
             // 
             this.TenSach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TenSach.DataPropertyName = "TenSach";
+            this.TenSach.FillWeight = 200F;
             this.TenSach.HeaderText = "Tên sách";
-            this.TenSach.MinimumWidth = 6;
+            this.TenSach.MinimumWidth = 160;
             this.TenSach.Name = "TenSach";
             this.TenSach.ReadOnly = true;
             // 
@@ -324,12 +325,12 @@ namespace QuanLyThuVienApp
             // 
             // TenNXB
             // 
-            this.TenNXB.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TenNXB.DataPropertyName = "TenNXB";
             this.TenNXB.HeaderText = "Nhà xuất bản";
             this.TenNXB.MinimumWidth = 6;
             this.TenNXB.Name = "TenNXB";
             this.TenNXB.ReadOnly = true;
+            this.TenNXB.Visible = false;
             // 
             // TenTheLoai
             // 
@@ -362,10 +363,10 @@ namespace QuanLyThuVienApp
             this.btnDangKy.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnDangKy.IconSize = 19;
             this.btnDangKy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDangKy.Location = new System.Drawing.Point(685, 448);
+            this.btnDangKy.Location = new System.Drawing.Point(850, 520);
             this.btnDangKy.Margin = new System.Windows.Forms.Padding(2);
             this.btnDangKy.Name = "btnDangKy";
-            this.btnDangKy.Size = new System.Drawing.Size(250, 36);
+            this.btnDangKy.Size = new System.Drawing.Size(325, 42);
             this.btnDangKy.TabIndex = 26;
             this.btnDangKy.Text = "Xác nhận cho mượn";
             this.btnDangKy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -376,7 +377,7 @@ namespace QuanLyThuVienApp
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(557, 24);
+            this.label3.Location = new System.Drawing.Point(708, 24);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 16);
@@ -387,7 +388,7 @@ namespace QuanLyThuVienApp
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(710, 24);
+            this.label4.Location = new System.Drawing.Point(845, 24);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 16);
@@ -397,31 +398,31 @@ namespace QuanLyThuVienApp
             // txtMaBanDoc
             // 
             this.txtMaBanDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaBanDoc.Location = new System.Drawing.Point(617, 22);
+            this.txtMaBanDoc.Location = new System.Drawing.Point(768, 22);
             this.txtMaBanDoc.Margin = new System.Windows.Forms.Padding(2);
             this.txtMaBanDoc.Name = "txtMaBanDoc";
             this.txtMaBanDoc.ReadOnly = true;
-            this.txtMaBanDoc.Size = new System.Drawing.Size(80, 22);
+            this.txtMaBanDoc.Size = new System.Drawing.Size(70, 22);
             this.txtMaBanDoc.TabIndex = 28;
             // 
             // txtTenBanDoc
             // 
             this.txtTenBanDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenBanDoc.Location = new System.Drawing.Point(764, 22);
+            this.txtTenBanDoc.Location = new System.Drawing.Point(898, 22);
             this.txtTenBanDoc.Margin = new System.Windows.Forms.Padding(2);
             this.txtTenBanDoc.Name = "txtTenBanDoc";
             this.txtTenBanDoc.ReadOnly = true;
-            this.txtTenBanDoc.Size = new System.Drawing.Size(171, 22);
+            this.txtTenBanDoc.Size = new System.Drawing.Size(140, 22);
             this.txtTenBanDoc.TabIndex = 28;
             // 
             // btnChonLai
             // 
             this.btnChonLai.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnChonLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChonLai.Location = new System.Drawing.Point(764, 53);
+            this.btnChonLai.Location = new System.Drawing.Point(1045, 20);
             this.btnChonLai.Margin = new System.Windows.Forms.Padding(2);
             this.btnChonLai.Name = "btnChonLai";
-            this.btnChonLai.Size = new System.Drawing.Size(82, 26);
+            this.btnChonLai.Size = new System.Drawing.Size(65, 26);
             this.btnChonLai.TabIndex = 29;
             this.btnChonLai.Text = "Chọn lại";
             this.btnChonLai.UseVisualStyleBackColor = false;
@@ -431,10 +432,10 @@ namespace QuanLyThuVienApp
             // 
             this.btnThoat.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(853, 53);
+            this.btnThoat.Location = new System.Drawing.Point(1115, 20);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(2);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(82, 26);
+            this.btnThoat.Size = new System.Drawing.Size(60, 26);
             this.btnThoat.TabIndex = 29;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = false;
@@ -444,7 +445,7 @@ namespace QuanLyThuVienApp
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(557, 57);
+            this.label5.Location = new System.Drawing.Point(708, 57);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(86, 16);
@@ -455,7 +456,7 @@ namespace QuanLyThuVienApp
             // 
             this.txtCoTheMuon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCoTheMuon.ForeColor = System.Drawing.Color.DarkGreen;
-            this.txtCoTheMuon.Location = new System.Drawing.Point(647, 54);
+            this.txtCoTheMuon.Location = new System.Drawing.Point(798, 54);
             this.txtCoTheMuon.Margin = new System.Windows.Forms.Padding(2);
             this.txtCoTheMuon.Name = "txtCoTheMuon";
             this.txtCoTheMuon.ReadOnly = true;
@@ -466,7 +467,7 @@ namespace QuanLyThuVienApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 501);
+            this.ClientSize = new System.Drawing.Size(1200, 580);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnChonLai);
             this.Controls.Add(this.txtCoTheMuon);
