@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvSach = new System.Windows.Forms.DataGridView();
             this.MaSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,9 +57,9 @@
             this.cbTacGia = new System.Windows.Forms.ComboBox();
             this.cbNXB = new System.Windows.Forms.ComboBox();
             this.cbTheLoai = new System.Windows.Forms.ComboBox();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnThem = new FontAwesome.Sharp.IconButton();
+            this.btnSua = new FontAwesome.Sharp.IconButton();
+            this.btnXoa = new FontAwesome.Sharp.IconButton();
             this.btnThemTG = new FontAwesome.Sharp.IconButton();
             this.btnThemNXB = new FontAwesome.Sharp.IconButton();
             this.btnThemTheLoai = new FontAwesome.Sharp.IconButton();
@@ -74,11 +77,11 @@
             // 
             this.panel1.Controls.Add(this.dgvSach);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(0, 279);
+            this.panel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(0, 265);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(915, 196);
+            this.panel1.Size = new System.Drawing.Size(915, 210);
             this.panel1.TabIndex = 0;
             // 
             // dgvSach
@@ -86,8 +89,21 @@
             this.dgvSach.AllowUserToAddRows = false;
             this.dgvSach.AllowUserToDeleteRows = false;
             this.dgvSach.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
+            this.dgvSach.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSach.BackgroundColor = System.Drawing.Color.White;
-            this.dgvSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSach.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvSach.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvSach.ColumnHeadersHeight = 35;
+            this.dgvSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvSach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaSach,
             this.TenSach,
@@ -96,7 +112,17 @@
             this.TenTheLoai,
             this.SoLuong,
             this.SoSachMuon});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(234)))), ((int)(((byte)(254)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSach.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvSach.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSach.EnableHeadersVisualStyles = false;
+            this.dgvSach.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(232)))), ((int)(((byte)(240)))));
             this.dgvSach.Location = new System.Drawing.Point(0, 0);
             this.dgvSach.Margin = new System.Windows.Forms.Padding(2);
             this.dgvSach.MultiSelect = false;
@@ -104,8 +130,9 @@
             this.dgvSach.ReadOnly = true;
             this.dgvSach.RowHeadersVisible = false;
             this.dgvSach.RowHeadersWidth = 51;
-            this.dgvSach.RowTemplate.Height = 24;
-            this.dgvSach.Size = new System.Drawing.Size(915, 196);
+            this.dgvSach.RowTemplate.Height = 28;
+            this.dgvSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSach.Size = new System.Drawing.Size(915, 210);
             this.dgvSach.TabIndex = 1;
             this.dgvSach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSach_CellClick);
             // 
@@ -178,39 +205,47 @@
             // 
             // btnLamMoi
             // 
-            this.btnLamMoi.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLamMoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
+            this.btnLamMoi.FlatAppearance.BorderSize = 0;
+            this.btnLamMoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLamMoi.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLamMoi.ForeColor = System.Drawing.Color.White;
             this.btnLamMoi.IconChar = FontAwesome.Sharp.IconChar.ArrowRotateBackward;
-            this.btnLamMoi.IconColor = System.Drawing.Color.Black;
+            this.btnLamMoi.IconColor = System.Drawing.Color.White;
             this.btnLamMoi.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnLamMoi.IconSize = 19;
-            this.btnLamMoi.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnLamMoi.Location = new System.Drawing.Point(701, 208);
+            this.btnLamMoi.IconSize = 18;
+            this.btnLamMoi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLamMoi.Location = new System.Drawing.Point(692, 206);
             this.btnLamMoi.Margin = new System.Windows.Forms.Padding(2);
             this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(87, 25);
+            this.btnLamMoi.Size = new System.Drawing.Size(96, 30);
             this.btnLamMoi.TabIndex = 11;
-            this.btnLamMoi.Text = "Làm mới";
+            this.btnLamMoi.Text = " Làm mới";
             this.btnLamMoi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLamMoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLamMoi.UseVisualStyleBackColor = false;
             this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
+            this.btnTimKiem.FlatAppearance.BorderSize = 0;
+            this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.ForeColor = System.Drawing.Color.White;
             this.btnTimKiem.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.btnTimKiem.IconColor = System.Drawing.Color.Black;
+            this.btnTimKiem.IconColor = System.Drawing.Color.White;
             this.btnTimKiem.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnTimKiem.IconSize = 19;
-            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnTimKiem.Location = new System.Drawing.Point(796, 208);
+            this.btnTimKiem.IconSize = 18;
+            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTimKiem.Location = new System.Drawing.Point(796, 206);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(2);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(87, 25);
+            this.btnTimKiem.Size = new System.Drawing.Size(96, 30);
             this.btnTimKiem.TabIndex = 12;
-            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.Text = " Tìm kiếm";
             this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTimKiem.UseVisualStyleBackColor = false;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
@@ -387,90 +422,126 @@
             // 
             // btnThem
             // 
-            this.btnThem.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(299, 208);
+            this.btnThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(185)))), ((int)(((byte)(129)))));
+            this.btnThem.FlatAppearance.BorderSize = 0;
+            this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.ForeColor = System.Drawing.Color.White;
+            this.btnThem.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.btnThem.IconColor = System.Drawing.Color.White;
+            this.btnThem.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnThem.IconSize = 18;
+            this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThem.Location = new System.Drawing.Point(285, 206);
             this.btnThem.Margin = new System.Windows.Forms.Padding(2);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(95, 25);
+            this.btnThem.Size = new System.Drawing.Size(115, 32);
             this.btnThem.TabIndex = 16;
-            this.btnThem.Text = "Thêm sách";
+            this.btnThem.Text = " Thêm sách";
+            this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
-            this.btnSua.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.Location = new System.Drawing.Point(237, 208);
+            this.btnSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(158)))), ((int)(((byte)(11)))));
+            this.btnSua.FlatAppearance.BorderSize = 0;
+            this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSua.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSua.ForeColor = System.Drawing.Color.White;
+            this.btnSua.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
+            this.btnSua.IconColor = System.Drawing.Color.White;
+            this.btnSua.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnSua.IconSize = 18;
+            this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSua.Location = new System.Drawing.Point(230, 206);
             this.btnSua.Margin = new System.Windows.Forms.Padding(2);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(95, 25);
+            this.btnSua.Size = new System.Drawing.Size(105, 32);
             this.btnSua.TabIndex = 16;
-            this.btnSua.Text = "Sửa sách";
+            this.btnSua.Text = " Sửa sách";
+            this.btnSua.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.Location = new System.Drawing.Point(358, 208);
+            this.btnXoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.btnXoa.FlatAppearance.BorderSize = 0;
+            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.ForeColor = System.Drawing.Color.White;
+            this.btnXoa.IconChar = FontAwesome.Sharp.IconChar.TrashCan;
+            this.btnXoa.IconColor = System.Drawing.Color.White;
+            this.btnXoa.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnXoa.IconSize = 18;
+            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXoa.Location = new System.Drawing.Point(345, 206);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(2);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(95, 25);
+            this.btnXoa.Size = new System.Drawing.Size(105, 32);
             this.btnXoa.TabIndex = 16;
-            this.btnXoa.Text = "Xóa sách";
+            this.btnXoa.Text = " Xóa sách";
+            this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThemTG
             // 
-            this.btnThemTG.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnThemTG.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemTG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
+            this.btnThemTG.FlatAppearance.BorderSize = 0;
+            this.btnThemTG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThemTG.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemTG.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.btnThemTG.IconColor = System.Drawing.Color.Black;
-            this.btnThemTG.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnThemTG.IconSize = 15;
-            this.btnThemTG.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnThemTG.IconColor = System.Drawing.Color.White;
+            this.btnThemTG.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnThemTG.IconSize = 13;
+            this.btnThemTG.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnThemTG.Location = new System.Drawing.Point(306, 36);
             this.btnThemTG.Margin = new System.Windows.Forms.Padding(2);
             this.btnThemTG.Name = "btnThemTG";
-            this.btnThemTG.Size = new System.Drawing.Size(21, 21);
+            this.btnThemTG.Size = new System.Drawing.Size(24, 24);
             this.btnThemTG.TabIndex = 17;
             this.btnThemTG.UseVisualStyleBackColor = false;
             this.btnThemTG.Click += new System.EventHandler(this.btnThemTG_Click);
             // 
             // btnThemNXB
             // 
-            this.btnThemNXB.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnThemNXB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemNXB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
+            this.btnThemNXB.FlatAppearance.BorderSize = 0;
+            this.btnThemNXB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThemNXB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemNXB.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.btnThemNXB.IconColor = System.Drawing.Color.Black;
-            this.btnThemNXB.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnThemNXB.IconSize = 15;
-            this.btnThemNXB.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnThemNXB.IconColor = System.Drawing.Color.White;
+            this.btnThemNXB.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnThemNXB.IconSize = 13;
+            this.btnThemNXB.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnThemNXB.Location = new System.Drawing.Point(306, 76);
             this.btnThemNXB.Margin = new System.Windows.Forms.Padding(2);
             this.btnThemNXB.Name = "btnThemNXB";
-            this.btnThemNXB.Size = new System.Drawing.Size(21, 21);
+            this.btnThemNXB.Size = new System.Drawing.Size(24, 24);
             this.btnThemNXB.TabIndex = 17;
             this.btnThemNXB.UseVisualStyleBackColor = false;
             this.btnThemNXB.Click += new System.EventHandler(this.btnThemNXB_Click);
             // 
             // btnThemTheLoai
             // 
-            this.btnThemTheLoai.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnThemTheLoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemTheLoai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
+            this.btnThemTheLoai.FlatAppearance.BorderSize = 0;
+            this.btnThemTheLoai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThemTheLoai.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemTheLoai.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.btnThemTheLoai.IconColor = System.Drawing.Color.Black;
-            this.btnThemTheLoai.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnThemTheLoai.IconSize = 15;
-            this.btnThemTheLoai.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnThemTheLoai.IconColor = System.Drawing.Color.White;
+            this.btnThemTheLoai.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnThemTheLoai.IconSize = 13;
+            this.btnThemTheLoai.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnThemTheLoai.Location = new System.Drawing.Point(306, 117);
             this.btnThemTheLoai.Margin = new System.Windows.Forms.Padding(2);
             this.btnThemTheLoai.Name = "btnThemTheLoai";
-            this.btnThemTheLoai.Size = new System.Drawing.Size(21, 21);
+            this.btnThemTheLoai.Size = new System.Drawing.Size(24, 24);
             this.btnThemTheLoai.TabIndex = 17;
             this.btnThemTheLoai.UseVisualStyleBackColor = false;
             this.btnThemTheLoai.Click += new System.EventHandler(this.btnThemTheLoai_Click);
@@ -602,9 +673,9 @@
         private System.Windows.Forms.ComboBox cbTacGia;
         private System.Windows.Forms.ComboBox cbNXB;
         private System.Windows.Forms.ComboBox cbTheLoai;
-        private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.Button btnXoa;
+        private FontAwesome.Sharp.IconButton btnThem;
+        private FontAwesome.Sharp.IconButton btnSua;
+        private FontAwesome.Sharp.IconButton btnXoa;
         private FontAwesome.Sharp.IconButton btnThemTG;
         private FontAwesome.Sharp.IconButton btnThemNXB;
         private FontAwesome.Sharp.IconButton btnThemTheLoai;
