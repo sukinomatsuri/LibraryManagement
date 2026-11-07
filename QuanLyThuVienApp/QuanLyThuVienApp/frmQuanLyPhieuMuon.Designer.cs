@@ -354,10 +354,10 @@ namespace QuanLyThuVienApp
             this.btnChoMuon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChoMuon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChoMuon.ForeColor = System.Drawing.Color.White;
-            this.btnChoMuon.Location = new System.Drawing.Point(710, 510);
+            this.btnChoMuon.Location = new System.Drawing.Point(705, 510);
             this.btnChoMuon.Margin = new System.Windows.Forms.Padding(2);
             this.btnChoMuon.Name = "btnChoMuon";
-            this.btnChoMuon.Size = new System.Drawing.Size(110, 42);
+            this.btnChoMuon.Size = new System.Drawing.Size(120, 42);
             this.btnChoMuon.TabIndex = 39;
             this.btnChoMuon.Text = "Cho mượn";
             this.btnChoMuon.UseVisualStyleBackColor = false;
@@ -368,7 +368,7 @@ namespace QuanLyThuVienApp
             this.btnHuyPhieu.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnHuyPhieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuyPhieu.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnHuyPhieu.Location = new System.Drawing.Point(710, 510);
+            this.btnHuyPhieu.Location = new System.Drawing.Point(585, 510);
             this.btnHuyPhieu.Margin = new System.Windows.Forms.Padding(2);
             this.btnHuyPhieu.Name = "btnHuyPhieu";
             this.btnHuyPhieu.Size = new System.Drawing.Size(110, 42);
@@ -381,12 +381,12 @@ namespace QuanLyThuVienApp
             // 
             this.btnMuonMoi.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnMuonMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMuonMoi.Location = new System.Drawing.Point(830, 510);
+            this.btnMuonMoi.Location = new System.Drawing.Point(835, 510);
             this.btnMuonMoi.Margin = new System.Windows.Forms.Padding(2);
             this.btnMuonMoi.Name = "btnMuonMoi";
-            this.btnMuonMoi.Size = new System.Drawing.Size(105, 42);
+            this.btnMuonMoi.Size = new System.Drawing.Size(110, 42);
             this.btnMuonMoi.TabIndex = 40;
-            this.btnMuonMoi.Text = "Mượn mới";
+            this.btnMuonMoi.Text = "Cho mượn mới";
             this.btnMuonMoi.UseVisualStyleBackColor = false;
             this.btnMuonMoi.Click += new System.EventHandler(this.btnMuonMoi_Click);
             // 

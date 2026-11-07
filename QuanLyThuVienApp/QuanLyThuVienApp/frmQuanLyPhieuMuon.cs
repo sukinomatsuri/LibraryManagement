@@ -70,7 +70,7 @@ namespace QuanLyThuVienApp
             btnHoaDonPhat.Show();
             btnTraSach.Show();
             btnGiaHan.Show();
-            btnMuonMoi.Hide();
+            btnMuonMoi.Show();
             btnHuyPhieu.Hide();
             btnChoMuon.Hide();
 
