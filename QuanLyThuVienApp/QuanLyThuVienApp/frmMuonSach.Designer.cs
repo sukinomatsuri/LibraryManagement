@@ -99,6 +99,7 @@ namespace QuanLyThuVienApp
             this.dgvSach.RowHeadersVisible = false;
             this.dgvSach.RowHeadersWidth = 51;
             this.dgvSach.RowTemplate.Height = 24;
+            this.dgvSach.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.dgvSach.Size = new System.Drawing.Size(915, 210);
             this.dgvSach.TabIndex = 0;
             this.dgvSach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSach_CellClick);
@@ -108,19 +109,19 @@ namespace QuanLyThuVienApp
             // 
             this.MaSach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.MaSach.DataPropertyName = "MaSach";
-            this.MaSach.HeaderText = "Mã Sách";
+            this.MaSach.HeaderText = "Mã sách";
             this.MaSach.MinimumWidth = 6;
             this.MaSach.Name = "MaSach";
             this.MaSach.ReadOnly = true;
-            this.MaSach.Width = 85;
+            this.MaSach.Width = 75;
             // 
             // TenSach
             // 
             this.TenSach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TenSach.DataPropertyName = "TenSach";
-            this.TenSach.FillWeight = 200F;
+            this.TenSach.FillWeight = 150F;
             this.TenSach.HeaderText = "Tên sách";
-            this.TenSach.MinimumWidth = 160;
+            this.TenSach.MinimumWidth = 100;
             this.TenSach.Name = "TenSach";
             this.TenSach.ReadOnly = true;
             // 
