@@ -24,6 +24,30 @@ namespace QuanLyThuVienApp
         {
             radioPhieuDangKy.Checked = true;
         }
+
+        private void dgvPhieuMuon_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            var row = dgvPhieuMuon.Rows[e.RowIndex];
+            if (row.IsNewRow) return;
+            string trangThai = row.Cells["TrangThai"].Value != null ? row.Cells["TrangThai"].Value.ToString() : null;
+            DateTime hanTra;
+            bool coHanTra = false;
+            if (dgvPhieuMuon.Columns.Contains("HanTra") && row.Cells["HanTra"] != null && row.Cells["HanTra"].Value != null)
+            {
+                coHanTra = DateTime.TryParse(row.Cells["HanTra"].Value.ToString(), out hanTra);
+            }
+            else
+            {
+                hanTra = DateTime.Today;
+            }
+
+            if (trangThai == "Đã trả")
+                row.DefaultCellStyle.BackColor = Color.FromArgb(220, 252, 231); // xanh lá
+            else if (trangThai == "Quá hạn" || (trangThai == "Đang mượn" && coHanTra && hanTra.Date < DateTime.Today))
+                row.DefaultCellStyle.BackColor = Color.FromArgb(254, 202, 202); // đỏ nhạt
+            else if (trangThai == "Đang mượn")
+                row.DefaultCellStyle.BackColor = Color.FromArgb(219, 234, 254); // xanh dương
+        }
         
         /* Trạng thái phiếu
             0: đăng ký mượn
@@ -70,7 +94,7 @@ namespace QuanLyThuVienApp
             btnHoaDonPhat.Show();
             btnTraSach.Show();
             btnGiaHan.Show();
-            btnMuonMoi.Show();
+            btnMuonMoi.Hide();
             btnHuyPhieu.Hide();
             btnChoMuon.Hide();
 
