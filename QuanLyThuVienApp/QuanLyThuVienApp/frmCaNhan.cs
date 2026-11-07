@@ -46,6 +46,7 @@ namespace QuanLyThuVienApp
 
             txtTenDangNhap.Text = nguoiDung.TenDangNhap ?? "";
             txtHoVaTen.Text = nguoiDung.HoTen ?? "";
+            txtHoVaTen.ReadOnly = false;
             txtEmail.Text = nguoiDung.Email ?? "";
             txtSoSachMuon.Text = (nguoiDung.SoSachMuon ?? 0).ToString() + " / 10 cuốn";
 
@@ -63,6 +64,30 @@ namespace QuanLyThuVienApp
             txtNgayDangKy.Text = nguoiDung.NgayDangKi.HasValue
                 ? nguoiDung.NgayDangKi.Value.ToString("dd/MM/yyyy HH:mm")
                 : "Chưa cập nhật";
+        }
+
+        private void btnLuuThayDoi_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtHoVaTen.Text))
+            {
+                MessageBox.Show("Vui lòng nhập họ và tên!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            QLTVEntities db = new QLTVEntities();
+            NguoiDung nguoiDung = db.NguoiDungs.Where(p => p.ID == ID).FirstOrDefault();
+
+            if (nguoiDung != null)
+            {
+                nguoiDung.HoTen = txtHoVaTen.Text.Trim();
+                db.SaveChanges();
+
+                if (nguoiDung.QuyenHan == "admin") frmMainAdmin.text = "Chào mừng: " + txtHoVaTen.Text.Trim();
+                else if (nguoiDung.BiKhoa == false) frmMainUser.text = "Chào mừng: " + txtHoVaTen.Text.Trim();
+
+                MessageBox.Show("Lưu thay đổi thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadDuLieu();
+            }
         }
 
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
