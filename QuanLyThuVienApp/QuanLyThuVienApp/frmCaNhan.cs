@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,15 +40,29 @@ namespace QuanLyThuVienApp
         private void loadDuLieu()
         {
             QLTVEntities db = new QLTVEntities();
-            NguoiDung nguoiDung = db.NguoiDungs.Where(p=>p.ID == ID).FirstOrDefault();
+            NguoiDung nguoiDung = db.NguoiDungs.Where(p => p.ID == ID).FirstOrDefault();
 
-            txtTenDangNhap.Text = nguoiDung.TenDangNhap.ToString();
-            txtHoVaTen.Text = nguoiDung.HoTen;
-            txtEmail.Text = nguoiDung.Email;
-            txtSoSachMuon.Text = nguoiDung.SoSachMuon.ToString() + "/10";
+            if (nguoiDung == null) return;
+
+            txtTenDangNhap.Text = nguoiDung.TenDangNhap ?? "";
+            txtHoVaTen.Text = nguoiDung.HoTen ?? "";
+            txtEmail.Text = nguoiDung.Email ?? "";
+            txtSoSachMuon.Text = (nguoiDung.SoSachMuon ?? 0).ToString() + " / 10 cuốn";
+
             if (nguoiDung.QuyenHan == "user")
+            {
                 txtID.Text = "DB" + nguoiDung.ID;
-            else txtID.Text = "AD" + nguoiDung.ID;
+                txtQuyenHan.Text = "Độc giả (User)";
+            }
+            else
+            {
+                txtID.Text = "AD" + nguoiDung.ID;
+                txtQuyenHan.Text = "Quản trị viên (Admin)";
+            }
+
+            txtNgayDangKy.Text = nguoiDung.NgayDangKi.HasValue
+                ? nguoiDung.NgayDangKi.Value.ToString("dd/MM/yyyy HH:mm")
+                : "Chưa cập nhật";
         }
 
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
