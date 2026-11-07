@@ -1,3 +1,4 @@
+namespace QuanLyThuVienApp
 {
     partial class frmQuanLyPhieuMuon
     {

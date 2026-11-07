@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -184,7 +184,8 @@ namespace QuanLyThuVienApp
                 return;
             }
 
-            if (!int.TryParse(txtSoLuong.Text, out int val) || val <= 0)
+            int val;
+            if (!int.TryParse(txtSoLuong.Text, out val) || val <= 0)
             {
                 MessageBox.Show("Số lượng không hợp lệ!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSoLuong.Focus();
@@ -260,7 +261,8 @@ namespace QuanLyThuVienApp
                 return;
             }
 
-            if(!int.TryParse(txtSoLuong.Text, out int val))
+            int val;
+            if(!int.TryParse(txtSoLuong.Text, out val))
             {
                 MessageBox.Show("Số lượng không hợp lệ!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSoLuong.Focus();

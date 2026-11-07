@@ -205,7 +205,8 @@ namespace QuanLyThuVienApp
         {
             if (e.RowIndex < 0 || e.RowIndex >= dgvPhieuMuon.Rows.Count) return;
 
-            string trangThai = dgvPhieuMuon.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString() ?? "";
+            object cellVal = dgvPhieuMuon.Rows[e.RowIndex].Cells["TrangThai"].Value;
+            string trangThai = cellVal != null ? cellVal.ToString() : "";
             if (trangThai == "Quá hạn")
             {
                 e.CellStyle.ForeColor = Color.Red;

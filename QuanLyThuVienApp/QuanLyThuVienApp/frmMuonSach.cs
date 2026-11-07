@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -210,7 +210,8 @@ namespace QuanLyThuVienApp
         {
             if (e.ColumnIndex != 2) return;
             string soLuong = e.FormattedValue.ToString();
-            if (int.TryParse(soLuong, out int result) && result > 0)
+            int result;
+            if (int.TryParse(soLuong, out result) && result > 0)
             {
                 QLTVEntities db = new QLTVEntities();
                 int maSach = int.Parse(dgvSachMuon.Rows[e.RowIndex].Cells["MaSach2"].Value.ToString().Substring(1));
