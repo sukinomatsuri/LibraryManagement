@@ -61,29 +61,60 @@ namespace QuanLyThuVienApp
 
         private void dgvSach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex != -1 && dgvSach.Columns[e.ColumnIndex].Name.ToString() == "btnDangKy")
+            if (e.RowIndex != -1 && dgvSach.Columns[e.ColumnIndex].Name == "btnDangKy")
             {
-                if(int.Parse(dgvSach.Rows[e.RowIndex].Cells["CoSan"].Value.ToString()) == 0)
-                {
-                    MessageBox.Show("Đã hết sách!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                ThemSachVaoDanhSachMuon(e.RowIndex);
+            }
+        }
 
-                string maSach = dgvSach.Rows[e.RowIndex].Cells["MaSach"].Value.ToString();
-                string tenSach = dgvSach.Rows[e.RowIndex].Cells["TenSach"].Value.ToString();
+        private void dgvSach_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                ThemSachVaoDanhSachMuon(e.RowIndex);
+            }
+        }
 
-                foreach (DataGridViewRow row in dgvSachMuon.Rows)
+        private void ThemSachVaoDanhSachMuon(int rowIndex)
+        {
+            if (rowIndex < 0 || rowIndex >= dgvSach.Rows.Count) return;
+
+            var row = dgvSach.Rows[rowIndex];
+            int coSan = 0;
+            if (row.Cells["CoSan"].Value != null)
+            {
+                int.TryParse(row.Cells["CoSan"].Value.ToString(), out coSan);
+            }
+
+            if (coSan <= 0)
+            {
+                MessageBox.Show("Sách này hiện đã hết (Còn: 0), không thể đăng ký mượn!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string maSach = row.Cells["MaSach"].Value != null ? row.Cells["MaSach"].Value.ToString() : "";
+            string tenSach = row.Cells["TenSach"].Value != null ? row.Cells["TenSach"].Value.ToString() : "";
+
+            foreach (DataGridViewRow r in dgvSachMuon.Rows)
+            {
+                if (r.Cells["MaSach2"].Value != null && r.Cells["MaSach2"].Value.ToString() == maSach)
                 {
-                    if (row.Cells["MaSach2"].Value.ToString() == maSach)
+                    int soLuong = 1;
+                    if (r.Cells["SoLuong2"].Value != null)
                     {
-                        int soLuong = int.Parse(row.Cells["SoLuong2"].Value.ToString());
-                        row.Cells["SoLuong2"].Value = soLuong + 1;
+                        int.TryParse(r.Cells["SoLuong2"].Value.ToString(), out soLuong);
+                    }
+                    if (soLuong + 1 > coSan)
+                    {
+                        MessageBox.Show("Số lượng đăng ký mượn không được vượt quá số sách có sẵn (" + coSan + ")!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
+                    r.Cells["SoLuong2"].Value = soLuong + 1;
+                    return;
                 }
-
-                dgvSachMuon.Rows.Add(maSach, tenSach, 1);
             }
+
+            dgvSachMuon.Rows.Add(maSach, tenSach, 1);
         }
 
         private void dgvSachMuon_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -138,63 +169,98 @@ namespace QuanLyThuVienApp
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {
-            if (dgvSachMuon.Rows.Count == 0) return;
+            if (dgvSachMuon.Rows.Count == 0)
+            {
+                if (dgvSach.CurrentRow != null && dgvSach.CurrentRow.Index >= 0)
+                {
+                    ThemSachVaoDanhSachMuon(dgvSach.CurrentRow.Index);
+                }
+
+                if (dgvSachMuon.Rows.Count == 0)
+                {
+                    MessageBox.Show("Vui lòng chọn ít nhất một cuốn sách vào danh sách đăng ký mượn!\n(Nhấn nút 'Đăng ký' hoặc nhấp đúp vào sách ở bảng 1)", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
 
             DialogResult result = MessageBox.Show(
-               "Bạn có muốn đăng ký mượn sách không?",
-               "Thông báo!",
+               "Bạn có muốn đăng ký mượn các sách đã chọn không?",
+               "Xác nhận đăng ký",
                MessageBoxButtons.YesNo,
                MessageBoxIcon.Question
-           );
+            );
 
             if (result == DialogResult.No) return;
 
             QLTVEntities db = new QLTVEntities();
-            NguoiDung nguoiDung = db.NguoiDungs.Where(p => p.ID == frmMainUser.ID).SingleOrDefault();
-            int soLuongMuon = 0;
-
-            foreach (DataGridViewRow row in dgvSachMuon.Rows)
-                soLuongMuon += int.Parse(row.Cells["SoLuong2"].Value.ToString());
-
-            if(soLuongMuon + nguoiDung.SoSachMuon > 10)
+            int userId = frmMainUser.ID;
+            if (userId <= 0)
             {
-                MessageBox.Show("Quá giới hạn sách có thể mượn! (" + soLuongMuon + "/" + (10 - nguoiDung.SoSachMuon.Value) + ")", "Thông báo!"
+                var firstUser = db.NguoiDungs.FirstOrDefault(p => p.QuyenHan == "user") ?? db.NguoiDungs.FirstOrDefault();
+                if (firstUser != null) userId = firstUser.ID;
+            }
+
+            NguoiDung nguoiDung = db.NguoiDungs.Where(p => p.ID == userId).SingleOrDefault();
+            if (nguoiDung == null)
+            {
+                MessageBox.Show("Không tìm thấy thông tin bạn đọc!", "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int soLuongMuon = 0;
+            foreach (DataGridViewRow row in dgvSachMuon.Rows)
+            {
+                if (row.Cells["SoLuong2"].Value != null)
+                {
+                    int qty = 0;
+                    int.TryParse(row.Cells["SoLuong2"].Value.ToString(), out qty);
+                    soLuongMuon += qty;
+                }
+            }
+
+            int currentSoSachMuon = nguoiDung.SoSachMuon ?? 0;
+            if (soLuongMuon + currentSoSachMuon > 10)
+            {
+                MessageBox.Show("Quá giới hạn sách có thể mượn! Bạn đang mượn " + currentSoSachMuon + " cuốn, chỉ có thể mượn thêm tối đa " + (10 - currentSoSachMuon) + " cuốn.", "Thông báo!"
                     , MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            /*
-             Lưu phiếu mượn
-             */
-            PhieuMuon phieuMuon = new PhieuMuon();
 
+            // 1. Lưu phiếu mượn trước để sinh MaPhieu Identity
+            PhieuMuon phieuMuon = new PhieuMuon();
             phieuMuon.IDBanDoc = nguoiDung.ID;
             phieuMuon.NgayDangKyMuon = DateTime.Now;
-            ////////////////////////////////
-            // 0: chờ đến thư viện lấy sách
-            // 1: đang mượn
-            // 2: đã trả
-            // -1: quá hạn
-            ////////////////////////////////
-            phieuMuon.TrangThai = 0;  
+            phieuMuon.TrangThai = 0; // 0: Đăng ký mượn (chờ duyệt)
             db.PhieuMuons.Add(phieuMuon);
+            db.SaveChanges();
 
-            /*
-             Lưu phiếu chi tiết, cập nhật số lượng sách
-             */
-
-            foreach(DataGridViewRow row in dgvSachMuon.Rows)
+            // 2. Lưu chi tiết phiếu mượn & cập nhật số lượng sách
+            foreach (DataGridViewRow row in dgvSachMuon.Rows)
             {
+                if (row.Cells["MaSach2"].Value == null) continue;
+                string maStr = row.Cells["MaSach2"].Value.ToString();
+                int idSach = int.Parse(maStr.StartsWith("S") ? maStr.Substring(1) : maStr);
+                int soLuong = 1;
+                if (row.Cells["SoLuong2"].Value != null)
+                {
+                    int.TryParse(row.Cells["SoLuong2"].Value.ToString(), out soLuong);
+                }
+
                 ChiTietPhieuMuon chiTiet = new ChiTietPhieuMuon();
                 chiTiet.MaPhieu = phieuMuon.MaPhieu;
-                chiTiet.IDSach = int.Parse(row.Cells["MaSach2"].Value.ToString().Substring(1));
-                chiTiet.SoLuong = int.Parse(row.Cells["SoLuong2"].Value.ToString());
+                chiTiet.IDSach = idSach;
+                chiTiet.SoLuong = soLuong;
+                chiTiet.PhieuMuon = phieuMuon;
                 db.ChiTietPhieuMuons.Add(chiTiet);
 
-                Sach sach = db.Saches.Where(p => p.ID == chiTiet.IDSach).SingleOrDefault();
-                sach.SoSachMuon += chiTiet.SoLuong;
+                Sach sach = db.Saches.Where(p => p.ID == idSach).SingleOrDefault();
+                if (sach != null)
+                {
+                    sach.SoSachMuon = (sach.SoSachMuon ?? 0) + soLuong;
+                }
             }
 
-            nguoiDung.SoSachMuon += soLuongMuon;
+            nguoiDung.SoSachMuon = currentSoSachMuon + soLuongMuon;
             db.SaveChanges();
 
             // Tạm tắt event CellValidating để clear dgv
@@ -203,7 +269,7 @@ namespace QuanLyThuVienApp
             dgvSachMuon.CellValidating += dgvSachMuon_CellValidating;
 
             loadDuLieu();
-            MessageBox.Show("Đăng ký mượn thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Đăng ký mượn sách thành công! Phiếu mượn đã được ghi nhận ở trạng thái chờ duyệt.", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void dgvSachMuon_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)

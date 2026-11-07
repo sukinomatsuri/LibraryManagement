@@ -102,6 +102,7 @@ namespace QuanLyThuVienApp
             this.dgvSach.Size = new System.Drawing.Size(915, 210);
             this.dgvSach.TabIndex = 0;
             this.dgvSach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSach_CellClick);
+            this.dgvSach.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSach_CellDoubleClick);
             // 
             // MaSach
             // 
