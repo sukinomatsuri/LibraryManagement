@@ -37,7 +37,7 @@ namespace QuanLyThuVienApp
             nutDangKy.HeaderText = "";
             nutDangKy.Text = "Đăng ký";
             nutDangKy.Name = "btnDangKy";
-            nutDangKy.Width = 78;
+            nutDangKy.Width = 70;
             nutDangKy.UseColumnTextForButtonValue = true;
 
             // Tạo nút xóa
