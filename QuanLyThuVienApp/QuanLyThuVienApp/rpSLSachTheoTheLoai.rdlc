@@ -1,432 +1,858 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
-	<AutoRefresh>0</AutoRefresh>
-	<DataSources>
-		<DataSource Name="QLTVDataSet">
-			<ConnectionProperties>
-				<DataProvider>System.Data.DataSet</DataProvider>
-				<ConnectString>/* Local Connection */</ConnectString>
-			</ConnectionProperties>
-			<rd:DataSourceID>c7c1f5ca-6699-48f9-b7f5-91515a70aaff</rd:DataSourceID>
-		</DataSource>
-		<DataSource Name="QuanLyThuVienApp">
-			<ConnectionProperties>
-				<DataProvider>System.Data.DataSet</DataProvider>
-				<ConnectString>/* Local Connection */</ConnectString>
-			</ConnectionProperties>
-			<rd:DataSourceID>5ff3133c-c4e1-4143-b771-a11c875964f5</rd:DataSourceID>
-		</DataSource>
-	</DataSources>
-	<DataSets>
-		<DataSet Name="DataSetSLSachTheoTheLoai">
-			<Query>
-				<DataSourceName>QuanLyThuVienApp</DataSourceName>
-				<CommandText>/* Local Query */</CommandText>
-			</Query>
-			<Fields>
-				<Field Name="SoLuongSach">
-					<DataField>SoLuongSach</DataField>
-					<rd:TypeName>System.Int32</rd:TypeName>
-				</Field>
-				<Field Name="TiLe">
-					<DataField>TiLe</DataField>
-					<rd:TypeName>System.Single</rd:TypeName>
-				</Field>
-				<Field Name="TheLoai">
-					<DataField>TheLoai</DataField>
-					<rd:TypeName>System.String</rd:TypeName>
-				</Field>
-			</Fields>
-			<rd:DataSetInfo>
-				<rd:DataSetName>QuanLyThuVienApp</rd:DataSetName>
-				<rd:TableName>ThongTinSachTheoTheLoai</rd:TableName>
-				<rd:ObjectDataSourceType>QuanLyThuVienApp.ThongTinSachTheoTheLoai, QuanLyThuVienApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
-			</rd:DataSetInfo>
-		</DataSet>
-	</DataSets>
-	<ReportSections>
-		<ReportSection>
-			<Body>
-				<ReportItems>
-					<Textbox Name="Textbox3">
-						<CanGrow>true</CanGrow>
-						<KeepTogether>true</KeepTogether>
-						<Paragraphs>
-							<Paragraph>
-								<TextRuns>
-									<TextRun>
-										<Value>THƯ VIỆN ĐẠI HỌC SƯ PHẠM THÀNH PHỐ HỒ CHÍ MINH</Value>
-										<Style>
-											<FontSize>10pt</FontSize>
-											<FontWeight>Bold</FontWeight>
-											<TextDecoration>None</TextDecoration>
-										</Style>
-									</TextRun>
-								</TextRuns>
-								<Style>
-									<TextAlign>Center</TextAlign>
-								</Style>
-							</Paragraph>
-						</Paragraphs>
-						<rd:DefaultName>Textbox3</rd:DefaultName>
-						<Left>1.23073cm</Left>
-						<!-- Adjusted for centering -->
-						<Height>0.78521cm</Height>
-						<Width>14.53854cm</Width>
-						<Style>
-							<Border>
-								<Style>None</Style>
-							</Border>
-							<PaddingLeft>2pt</PaddingLeft>
-							<PaddingRight>2pt</PaddingRight>
-							<PaddingTop>2pt</PaddingTop>
-							<PaddingBottom>2pt</PaddingBottom>
-						</Style>
-					</Textbox>
-					<Textbox Name="Textbox1">
-						<CanGrow>true</CanGrow>
-						<KeepTogether>true</KeepTogether>
-						<Paragraphs>
-							<Paragraph>
-								<TextRuns>
-									<TextRun>
-										<Value>="Thời gian in: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")</Value>
-										<Style>
-											<FontSize>12pt</FontSize>
-											<TextDecoration>None</TextDecoration>
-										</Style>
-									</TextRun>
-								</TextRuns>
-								<Style />
-							</Paragraph>
-						</Paragraphs>
-						<rd:DefaultName>Textbox1</rd:DefaultName>
-						<Top>6.05cm</Top>
-						<Left>0.8cm</Left>
-						<!-- Set a consistent left offset -->
-						<Height>0.6cm</Height>
-						<Width>7.55353cm</Width>
-						<ZIndex>1</ZIndex>
-						<Style>
-							<Border>
-								<Style>None</Style>
-							</Border>
-							<PaddingLeft>2pt</PaddingLeft>
-							<PaddingRight>2pt</PaddingRight>
-							<PaddingTop>2pt</PaddingTop>
-							<PaddingBottom>2pt</PaddingBottom>
-						</Style>
-					</Textbox>
-					<Textbox Name="Textbox2">
-						<CanGrow>true</CanGrow>
-						<KeepTogether>true</KeepTogether>
-						<Paragraphs>
-							<Paragraph>
-								<TextRuns>
-									<TextRun>
-										<Value>="Người in: " + Parameters!NguoiIn.Value</Value>
-										<Style>
-											<FontSize>12pt</FontSize>
-											<TextDecoration>None</TextDecoration>
-										</Style>
-									</TextRun>
-								</TextRuns>
-								<Style />
-							</Paragraph>
-						</Paragraphs>
-						<rd:DefaultName>Textbox2</rd:DefaultName>
-						<Top>6.05cm</Top>
-						<Left>8.99042cm</Left>
-						<!-- Calculated for a consistent right offset -->
-						<Height>0.6cm</Height>
-						<Width>7.20958cm</Width>
-						<ZIndex>2</ZIndex>
-						<Style>
-							<Border>
-								<Style>None</Style>
-							</Border>
-							<PaddingLeft>2pt</PaddingLeft>
-							<PaddingRight>2pt</PaddingRight>
-							<PaddingTop>2pt</PaddingTop>
-							<PaddingBottom>2pt</PaddingBottom>
-						</Style>
-					</Textbox>
-					<Textbox Name="Textbox4">
-						<CanGrow>true</CanGrow>
-						<KeepTogether>true</KeepTogether>
-						<Paragraphs>
-							<Paragraph>
-								<TextRuns>
-									<TextRun>
-										<Value>BÁO CÁO SỐ LƯỢNG SÁCH THEO THỂ LOẠI</Value>
-										<Style>
-											<FontSize>8pt</FontSize>
-											<FontWeight>Bold</FontWeight>
-										</Style>
-									</TextRun>
-								</TextRuns>
-								<Style>
-									<TextAlign>Center</TextAlign>
-								</Style>
-							</Paragraph>
-						</Paragraphs>
-						<rd:DefaultName>Textbox4</rd:DefaultName>
-						<Top>1.74308cm</Top>
-						<Left>3.29448cm</Left>
-						<!-- Adjusted for centering -->
-						<Height>0.6cm</Height>
-						<Width>10.41104cm</Width>
-						<ZIndex>3</ZIndex>
-						<Style>
-							<Border>
-								<Style>None</Style>
-							</Border>
-							<PaddingLeft>2pt</PaddingLeft>
-							<PaddingRight>2pt</PaddingRight>
-							<PaddingTop>2pt</PaddingTop>
-							<PaddingBottom>2pt</PaddingBottom>
-						</Style>
-					</Textbox>
-					<Tablix Name="Tablix1">
-						<TablixBody>
-							<TablixColumns>
-								<TablixColumn>
-									<Width>6.95208cm</Width>
-								</TablixColumn>
-								<TablixColumn>
-									<Width>3.45896cm</Width>
-								</TablixColumn>
-							</TablixColumns>
-							<TablixRows>
-								<TablixRow>
-									<Height>0.6cm</Height>
-									<TablixCells>
-										<TablixCell>
-											<CellContents>
-												<Textbox Name="Textbox5">
-													<CanGrow>true</CanGrow>
-													<KeepTogether>true</KeepTogether>
-													<Paragraphs>
-														<Paragraph>
-															<TextRuns>
-																<TextRun>
-																	<Value>Thể loại</Value>
-																	<Style>
-																		<FontSize>12pt</FontSize>
-																	</Style>
-																</TextRun>
-															</TextRuns>
-															<Style />
-														</Paragraph>
-													</Paragraphs>
-													<rd:DefaultName>Textbox5</rd:DefaultName>
-													<Style>
-														<Border>
-															<Color>LightGrey</Color>
-															<Style>None</Style>
-															<!-- Changed to None -->
-														</Border>
-														<PaddingLeft>2pt</PaddingLeft>
-														<PaddingRight>2pt</PaddingRight>
-														<PaddingTop>2pt</PaddingTop>
-														<PaddingBottom>2pt</PaddingBottom>
-													</Style>
-												</Textbox>
-											</CellContents>
-										</TablixCell>
-										<TablixCell>
-											<CellContents>
-												<Textbox Name="Textbox7">
-													<CanGrow>true</CanGrow>
-													<KeepTogether>true</KeepTogether>
-													<Paragraphs>
-														<Paragraph>
-															<TextRuns>
-																<TextRun>
-																	<Value>Số lượng sách</Value>
-																	<Style>
-																		<FontSize>12pt</FontSize>
-																	</Style>
-																</TextRun>
-															</TextRuns>
-															<Style />
-														</Paragraph>
-													</Paragraphs>
-													<rd:DefaultName>Textbox7</rd:DefaultName>
-													<Style>
-														<Border>
-															<Color>LightGrey</Color>
-															<Style>None</Style>
-															<!-- Changed to None -->
-														</Border>
-														<PaddingLeft>2pt</PaddingLeft>
-														<PaddingRight>2pt</PaddingRight>
-														<PaddingTop>2pt</PaddingTop>
-														<PaddingBottom>2pt</PaddingBottom>
-													</Style>
-												</Textbox>
-											</CellContents>
-										</TablixCell>
-									</TablixCells>
-								</TablixRow>
-								<TablixRow>
-									<Height>0.6cm</Height>
-									<TablixCells>
-										<TablixCell>
-											<CellContents>
-												<Textbox Name="TheLoai">
-													<CanGrow>true</CanGrow>
-													<KeepTogether>true</KeepTogether>
-													<Paragraphs>
-														<Paragraph>
-															<TextRuns>
-																<TextRun>
-																	<Value>=Fields!TheLoai.Value</Value>
-																	<Style>
-																		<FontSize>12pt</FontSize>
-																	</Style>
-																</TextRun>
-															</TextRuns>
-															<Style />
-														</Paragraph>
-													</Paragraphs>
-													<rd:DefaultName>TheLoai</rd:DefaultName>
-													<Style>
-														<Border>
-															<Color>LightGrey</Color>
-															<Style>None</Style>
-															<!-- Changed to None -->
-														</Border>
-														<PaddingLeft>2pt</PaddingLeft>
-														<PaddingRight>2pt</PaddingRight>
-														<PaddingTop>2pt</PaddingTop>
-														<PaddingBottom>2pt</PaddingBottom>
-													</Style>
-												</Textbox>
-											</CellContents>
-										</TablixCell>
-										<TablixCell>
-											<CellContents>
-												<Textbox Name="SoLuongSach">
-													<CanGrow>true</CanGrow>
-													<KeepTogether>true</KeepTogether>
-													<Paragraphs>
-														<Paragraph>
-															<TextRuns>
-																<TextRun>
-																	<Value>=Fields!SoLuongSach.Value</Value>
-																	<Style>
-																		<FontSize>12pt</FontSize>
-																	</Style>
-																</TextRun>
-															</TextRuns>
-															<Style />
-														</Paragraph>
-													</Paragraphs>
-													<rd:DefaultName>SoLuongSach</rd:DefaultName>
-													<Style>
-														<Border>
-															<Color>LightGrey</Color>
-															<Style>None</Style>
-															<!-- Changed to None -->
-														</Border>
-														<PaddingLeft>2pt</PaddingLeft>
-														<PaddingRight>2pt</PaddingRight>
-														<PaddingTop>2pt</PaddingTop>
-														<PaddingBottom>2pt</PaddingBottom>
-													</Style>
-												</Textbox>
-											</CellContents>
-										</TablixCell>
-									</TablixCells>
-								</TablixRow>
-							</TablixRows>
-						</TablixBody>
-						<TablixColumnHierarchy>
-							<TablixMembers>
-								<TablixMember />
-								<TablixMember />
-							</TablixMembers>
-						</TablixColumnHierarchy>
-						<TablixRowHierarchy>
-							<TablixMembers>
-								<TablixMember>
-									<KeepWithGroup>After</KeepWithGroup>
-								</TablixMember>
-								<TablixMember>
-									<Group Name="Details" />
-								</TablixMember>
-							</TablixMembers>
-						</TablixRowHierarchy>
-						<DataSetName>DataSetSLSachTheoTheLoai</DataSetName>
-						<Top>3.64808cm</Top>
-						<Left>3.29448cm</Left>
-						<!-- Adjusted for centering -->
-						<Height>1.2cm</Height>
-						<Width>10.41104cm</Width>
-						<ZIndex>4</ZIndex>
-						<Style>
-							<Border>
-								<Style>None</Style>
-							</Border>
-						</Style>
-					</Tablix>
-				</ReportItems>
-				<Height>2.88895in</Height>
-				<Style />
-			</Body>
-			<Width>6.92708in</Width>
-			<Page>
-				<PageHeader>
-					<Height>2.54cm</Height>
-					<PrintOnFirstPage>true</PrintOnFirstPage>
-					<PrintOnLastPage>true</PrintOnLastPage>
-					<Style>
-						<Border>
-							<Style>None</Style>
-						</Border>
-					</Style>
-				</PageHeader>
-				<PageFooter>
-					<Height>2.54cm</Height>
-					<PrintOnFirstPage>true</PrintOnFirstPage>
-					<PrintOnLastPage>true</PrintOnLastPage>
-					<Style>
-						<Border>
-							<Style>None</Style>
-						</Border>
-					</Style>
-				</PageFooter>
-				<PageHeight>29.7cm</PageHeight>
-				<PageWidth>21cm</PageWidth>
-				<LeftMargin>2cm</LeftMargin>
-				<RightMargin>2cm</RightMargin>
-				<TopMargin>2cm</TopMargin>
-				<BottomMargin>2cm</BottomMargin>
-				<ColumnSpacing>0.13cm</ColumnSpacing>
-				<Style />
-			</Page>
-		</ReportSection>
-	</ReportSections>
-	<ReportParameters>
-		<ReportParameter Name="NguoiIn">
-			<DataType>String</DataType>
-			<Prompt>ReportParameter1</Prompt>
-		</ReportParameter>
-	</ReportParameters>
-	<ReportParametersLayout>
-		<GridLayoutDefinition>
-			<NumberOfColumns>4</NumberOfColumns>
-			<NumberOfRows>2</NumberOfRows>
-			<CellDefinitions>
-				<CellDefinition>
-					<ColumnIndex>0</ColumnIndex>
-					<RowIndex>0</RowIndex>
-					<ParameterName>NguoiIn</ParameterName>
-				</CellDefinition>
-			</CellDefinitions>
-		</GridLayoutDefinition>
-	</ReportParametersLayout>
-	<rd:ReportUnitType>Cm</rd:ReportUnitType>
-	<rd:ReportID>79b7954e-bb6c-48fe-b181-91f7d4af0f5c</rd:ReportID>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="QuanLyThuVienApp">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>5ff3133c-c4e1-4143-b771-a11c875964f5</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSetSLSachTheoTheLoai">
+      <Query>
+        <DataSourceName>QuanLyThuVienApp</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="SoLuongSach">
+          <DataField>SoLuongSach</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TiLe">
+          <DataField>TiLe</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
+        <Field Name="TheLoai">
+          <DataField>TheLoai</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>QuanLyThuVienApp</rd:DataSetName>
+        <rd:TableName>ThongTinSachTheoTheLoai</rd:TableName>
+        <rd:ObjectDataSourceType>QuanLyThuVienApp.ThongTinSachTheoTheLoai, QuanLyThuVienApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <!-- Header cơ quan / trường học -->
+          <Textbox Name="HeaderSchool">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>TRƯỜNG ĐẠI HỌC SƯ PHẠM THÀNH PHỐ HỒ CHÍ MINH</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>#334155</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>0.4cm</Top>
+            <Left>0cm</Left>
+            <Height>0.6cm</Height>
+            <Width>19cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+            </Style>
+          </Textbox>
+
+          <!-- Tên thư viện -->
+          <Textbox Name="HeaderLibrary">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>THƯ VIỆN TRUNG TÂM</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>10pt</FontSize>
+                      <FontWeight>SemiBold</FontWeight>
+                      <Color>#64748B</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>1.0cm</Top>
+            <Left>0cm</Left>
+            <Height>0.5cm</Height>
+            <Width>19cm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+            </Style>
+          </Textbox>
+
+          <!-- Đường kẻ trang trí -->
+          <Line Name="HeaderLine">
+            <Top>1.65cm</Top>
+            <Left>7.5cm</Left>
+            <Height>0cm</Height>
+            <Width>4cm</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Color>#CBD5E1</Color>
+                <Style>Solid</Style>
+                <Width>1.5pt</Width>
+              </Border>
+            </Style>
+          </Line>
+
+          <!-- Tiêu đề báo cáo -->
+          <Textbox Name="ReportTitle">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>BÁO CÁO THỐNG KÊ SỐ LƯỢNG SÁCH THEO THỂ LOẠI</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>15pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>#1E3A8A</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>1.95cm</Top>
+            <Left>0cm</Left>
+            <Height>0.85cm</Height>
+            <Width>19cm</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+            </Style>
+          </Textbox>
+
+          <!-- Thời gian in -->
+          <Textbox Name="PrintTime">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>="Thời gian lập báo cáo: " &amp; Format(Now(), "dd/MM/yyyy HH:mm:ss")</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>9.5pt</FontSize>
+                      <FontStyle>Italic</FontStyle>
+                      <Color>#475569</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>2.9cm</Top>
+            <Left>0cm</Left>
+            <Height>0.55cm</Height>
+            <Width>9.5cm</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>4pt</PaddingLeft>
+            </Style>
+          </Textbox>
+
+          <!-- Người in -->
+          <Textbox Name="PrintUser">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>="Người lập: " &amp; Parameters!NguoiIn.Value</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>9.5pt</FontSize>
+                      <FontStyle>Italic</FontStyle>
+                      <Color>#475569</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>2.9cm</Top>
+            <Left>9.5cm</Left>
+            <Height>0.55cm</Height>
+            <Width>9.5cm</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingRight>4pt</PaddingRight>
+            </Style>
+          </Textbox>
+
+          <!-- Bảng Tablix -->
+          <Tablix Name="Tablix1">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>2cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>12cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>5cm</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <!-- DÒNG TIÊU ĐỀ BẢNG (HEADER) -->
+                <TablixRow>
+                  <Height>0.9cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="HeaderSTT">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>STT</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>10.5pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#1E3A8A</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </Border>
+                            <BackgroundColor>#1E3A8A</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="HeaderTheLoai">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Thể loại sách</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>10.5pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#1E3A8A</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </Border>
+                            <BackgroundColor>#1E3A8A</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>10pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="HeaderSoLuong">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Số lượng sách</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>10.5pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#1E3A8A</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </Border>
+                            <BackgroundColor>#1E3A8A</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+
+                <!-- DÒNG DỮ LIỆU (DETAILS) -->
+                <TablixRow>
+                  <Height>0.8cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="DataSTT">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=RowNumber(Nothing)</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>10pt</FontSize>
+                                    <Color>#1E293B</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#E2E8F0</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </Border>
+                            <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2 = 0, "#F8FAFC", "#FFFFFF")</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TheLoai">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!TheLoai.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>10pt</FontSize>
+                                    <Color>#1E293B</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#E2E8F0</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </Border>
+                            <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2 = 0, "#F8FAFC", "#FFFFFF")</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>10pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="SoLuongSach">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!SoLuongSach.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>10pt</FontSize>
+                                    <FontWeight>SemiBold</FontWeight>
+                                    <Color>#1E293B</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#E2E8F0</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </Border>
+                            <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2 = 0, "#F8FAFC", "#FFFFFF")</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+
+                <!-- DÒNG TỔNG CỘNG (TOTAL) -->
+                <TablixRow>
+                  <Height>0.85cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TotalBlank">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#CBD5E1</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>#CBD5E1</Color>
+                              <Style>Solid</Style>
+                              <Width>1.5pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>#1E3A8A</Color>
+                              <Style>Solid</Style>
+                              <Width>1.5pt</Width>
+                            </BottomBorder>
+                            <BackgroundColor>#F1F5F9</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TotalLabel">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>TỔNG CỘNG SỐ LƯỢNG SÁCH:</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>10.5pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>#1E3A8A</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#CBD5E1</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>#CBD5E1</Color>
+                              <Style>Solid</Style>
+                              <Width>1.5pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>#1E3A8A</Color>
+                              <Style>Solid</Style>
+                              <Width>1.5pt</Width>
+                            </BottomBorder>
+                            <BackgroundColor>#F1F5F9</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingRight>10pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TotalValue">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!SoLuongSach.Value) &amp; " cuốn"</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>10.5pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>#B91C1C</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#CBD5E1</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>#CBD5E1</Color>
+                              <Style>Solid</Style>
+                              <Width>1.5pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>#1E3A8A</Color>
+                              <Style>Solid</Style>
+                              <Width>1.5pt</Width>
+                            </BottomBorder>
+                            <BackgroundColor>#F1F5F9</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Details" />
+                </TablixMember>
+                <TablixMember>
+                  <KeepWithGroup>Before</KeepWithGroup>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSetSLSachTheoTheLoai</DataSetName>
+            <Top>3.6cm</Top>
+            <Left>0cm</Left>
+            <Height>2.55cm</Height>
+            <Width>19cm</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Color>#1E3A8A</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </Border>
+            </Style>
+          </Tablix>
+
+          <!-- KHỐI CHỮ KÝ: THỦ THƯ (BÊN TRÁI) -->
+          <Textbox Name="SignLibrarian">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>XÁC NHẬN CỦA THỦ THƯ</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>10.5pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>#1E293B</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>(Ký và ghi rõ họ tên)</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontStyle>Italic</FontStyle>
+                      <Color>#64748B</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>6.5cm</Top>
+            <Left>0.5cm</Left>
+            <Height>2.5cm</Height>
+            <Width>8cm</Width>
+            <ZIndex>7</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingTop>4pt</PaddingTop>
+            </Style>
+          </Textbox>
+
+          <!-- KHỐI CHỮ KÝ: NGƯỜI LẬP (BÊN PHẢI) -->
+          <Textbox Name="SignCreator">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>="TP. Hồ Chí Minh, ngày " &amp; Day(Now()) &amp; " tháng " &amp; Month(Now()) &amp; " năm " &amp; Year(Now())</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>9.5pt</FontSize>
+                      <FontStyle>Italic</FontStyle>
+                      <Color>#475569</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>NGƯỜI LẬP BÁO CÁO</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>10.5pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>#1E293B</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>(Ký và ghi rõ họ tên)</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontStyle>Italic</FontStyle>
+                      <Color>#64748B</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!NguoiIn.Value</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>10.5pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>#1E293B</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>6.5cm</Top>
+            <Left>10.5cm</Left>
+            <Height>2.5cm</Height>
+            <Width>8cm</Width>
+            <ZIndex>8</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingTop>4pt</PaddingTop>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <Height>9.5cm</Height>
+        <Style />
+      </Body>
+      <Width>19cm</Width>
+      <Page>
+        <PageHeight>29.7cm</PageHeight>
+        <PageWidth>21cm</PageWidth>
+        <LeftMargin>1cm</LeftMargin>
+        <RightMargin>1cm</RightMargin>
+        <TopMargin>1cm</TopMargin>
+        <BottomMargin>1cm</BottomMargin>
+        <ColumnSpacing>0.13cm</ColumnSpacing>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="NguoiIn">
+      <DataType>String</DataType>
+      <Prompt>NguoiIn</Prompt>
+      <DefaultValue>
+        <Values>
+          <Value>Quản trị viên</Value>
+        </Values>
+      </DefaultValue>
+    </ReportParameter>
+  </ReportParameters>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>NguoiIn</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>79b7954e-bb6c-48fe-b181-91f7d4af0f5c</rd:ReportID>
 </Report>

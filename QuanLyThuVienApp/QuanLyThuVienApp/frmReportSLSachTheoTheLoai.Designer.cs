@@ -45,9 +45,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(950, 650);
             this.Controls.Add(this.reportViewer1);
             this.Name = "frmReportSLSachTheoTheLoai";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Báo Cáo Số Lượng Sách Theo Thể Loại";
             this.Load += new System.EventHandler(this.frmReportSLSachTheoTheLoai_Load);
             this.ResumeLayout(false);
 

@@ -44,8 +44,11 @@ namespace QuanLyThuVienApp
                 })
                 .ToList();
 
+            reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSetTiLeSachTheoTheLoai", data));
 
+            this.reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+            this.reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
             this.reportViewer1.RefreshReport();
         }
     }
