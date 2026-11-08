@@ -5,6 +5,99 @@
     <ReportSection>
       <Body>
         <ReportItems>
+          <Line Name="HeaderRule">
+            <Top>7.45cm</Top>
+            <Left>2.4cm</Left>
+            <Height>0cm</Height>
+            <Width>16.2cm</Width>
+            <Style><Border><Style>Solid</Style><Color>Black</Color><Width>1pt</Width></Border></Style>
+          </Line>
+          <Line Name="DetailsRule">
+            <Top>8.35cm</Top>
+            <Left>2.4cm</Left>
+            <Height>0cm</Height>
+            <Width>16.2cm</Width>
+            <Style><Border><Style>Solid</Style><Color>Black</Color><Width>0.7pt</Width></Border></Style>
+          </Line>
+          <Line Name="FineRule">
+            <Top>9.55cm</Top>
+            <Left>2.4cm</Left>
+            <Height>0cm</Height>
+            <Width>16.2cm</Width>
+            <Style><Border><Style>Solid</Style><Color>Black</Color><Width>0.7pt</Width></Border></Style>
+          </Line>
+          <Line Name="FooterRule">
+            <Top>11.3cm</Top>
+            <Left>2.4cm</Left>
+            <Height>0cm</Height>
+            <Width>16.2cm</Width>
+            <Style><Border><Style>Solid</Style><Color>Black</Color><Width>1pt</Width></Border></Style>
+          </Line>
+          <Textbox Name="RecipientHeading">
+            <CanGrow>false</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun>
+              <Value>HÓA ĐƠN GỬI CHO</Value>
+              <Style><FontFamily>Segoe UI</FontFamily><FontSize>11pt</FontSize><FontWeight>Bold</FontWeight><Color>Black</Color></Style>
+            </TextRun></TextRuns><Style /></Paragraph></Paragraphs>
+            <Top>4.55cm</Top><Left>2.4cm</Left><Height>0.55cm</Height><Width>7.95cm</Width>
+            <Style><Border><Style>None</Style></Border><PaddingLeft>2pt</PaddingLeft></Style>
+          </Textbox>
+          <Textbox Name="HeadItem">
+            <CanGrow>false</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>HẠNG MỤC</Value>
+              <Style><FontFamily>Segoe UI</FontFamily><FontSize>10pt</FontSize><FontWeight>Bold</FontWeight></Style>
+            </TextRun></TextRuns><Style /></Paragraph></Paragraphs>
+            <Top>7.72cm</Top><Left>2.55cm</Left><Height>0.5cm</Height><Width>5.7cm</Width><Style />
+          </Textbox>
+          <Textbox Name="HeadDays">
+            <CanGrow>false</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>SỐ NGÀY</Value>
+              <Style><FontFamily>Segoe UI</FontFamily><FontSize>10pt</FontSize><FontWeight>Bold</FontWeight></Style>
+            </TextRun></TextRuns><Style /></Paragraph></Paragraphs>
+            <Top>7.72cm</Top><Left>8.55cm</Left><Height>0.5cm</Height><Width>2.3cm</Width><Style />
+          </Textbox>
+          <Textbox Name="HeadRate">
+            <CanGrow>false</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>ĐƠN GIÁ</Value>
+              <Style><FontFamily>Segoe UI</FontFamily><FontSize>10pt</FontSize><FontWeight>Bold</FontWeight></Style>
+            </TextRun></TextRuns><Style /></Paragraph></Paragraphs>
+            <Top>7.72cm</Top><Left>11.3cm</Left><Height>0.5cm</Height><Width>3.1cm</Width><Style />
+          </Textbox>
+          <Textbox Name="HeadAmount">
+            <CanGrow>false</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>THÀNH TIỀN</Value>
+              <Style><FontFamily>Segoe UI</FontFamily><FontSize>10pt</FontSize><FontWeight>Bold</FontWeight></Style>
+            </TextRun></TextRuns><Style /></Paragraph></Paragraphs>
+            <Top>7.72cm</Top><Left>14.75cm</Left><Height>0.5cm</Height><Width>3.6cm</Width><Style />
+          </Textbox>
+          <Textbox Name="RowDays">
+            <CanGrow>false</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Parameters!SoNgay.Value.ToString()</Value>
+              <Style><FontFamily>Segoe UI</FontFamily><FontSize>10pt</FontSize></Style>
+            </TextRun></TextRuns><Style /></Paragraph></Paragraphs>
+            <Top>8.68cm</Top><Left>8.55cm</Left><Height>0.55cm</Height><Width>2.3cm</Width><Style />
+          </Textbox>
+          <Textbox Name="RowRate">
+            <CanGrow>false</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>1.000 VNĐ</Value>
+              <Style><FontFamily>Segoe UI</FontFamily><FontSize>10pt</FontSize></Style>
+            </TextRun></TextRuns><Style /></Paragraph></Paragraphs>
+            <Top>8.68cm</Top><Left>11.3cm</Left><Height>0.55cm</Height><Width>3.1cm</Width><Style />
+          </Textbox>
+          <Textbox Name="RowAmount">
+            <CanGrow>false</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Format(CInt(Parameters!SoNgay.Value) * 1000, "#,##0") + " VNĐ"</Value>
+              <Style><FontFamily>Segoe UI</FontFamily><FontSize>10pt</FontSize></Style>
+            </TextRun></TextRuns><Style /></Paragraph></Paragraphs>
+            <Top>8.68cm</Top><Left>14.75cm</Left><Height>0.55cm</Height><Width>3.6cm</Width><Style />
+          </Textbox>
+          <Textbox Name="Subtotal">
+            <CanGrow>false</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>="Tạm tính:   " + Format(CInt(Parameters!SoNgay.Value) * 1000, "#,##0") + " VNĐ"</Value>
+              <Style><FontFamily>Segoe UI</FontFamily><FontSize>10pt</FontSize></Style>
+            </TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs>
+            <Top>9.83cm</Top><Left>10.65cm</Left><Height>0.55cm</Height><Width>7.7cm</Width><Style />
+          </Textbox>
+          <Textbox Name="RateLabel">
+            <CanGrow>false</CanGrow>
+            <Paragraphs><Paragraph><TextRuns><TextRun>
+              <Value>Phạt trả sách quá hạn</Value>
+              <Style><FontFamily>Segoe UI</FontFamily><FontSize>10pt</FontSize><Color>Black</Color></Style>
+            </TextRun></TextRuns><Style /></Paragraph></Paragraphs>
+            <Top>8.68cm</Top><Left>2.55cm</Left><Height>0.55cm</Height><Width>5.7cm</Width>
+            <Style><Border><Style>None</Style></Border><PaddingLeft>2pt</PaddingLeft></Style>
+          </Textbox>
           <Textbox Name="Textbox3">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -12,23 +105,26 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>THƯ VIỆN ĐẠI HỌC SƯ PHẠM THÀNH PHỐ HỒ CHÍ MINH</Value>
+                    <Value>THƯ VIỆN ĐẠI HỌC SƯ PHẠM TP.HCM</Value>
                     <Style>
-                      <FontSize>10pt</FontSize>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>17pt</FontSize>
                       <FontWeight>Bold</FontWeight>
+                      <Color>Black</Color>
                       <TextDecoration>None</TextDecoration>
                     </Style>
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Center</TextAlign>
+                  <TextAlign>Left</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Left>1.74308cm</Left>
-            <Height>0.9175cm</Height>
-            <Width>13.93cm</Width>
+            <Top>1.1cm</Top>
+            <Left>2.4cm</Left>
+            <Height>1.25cm</Height>
+            <Width>9cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -46,21 +142,24 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="Thời gian in: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")</Value>
+                    <Value>="Ngày " + DateTime.Now.ToString("dd") + " tháng " + DateTime.Now.ToString("MM") + " năm " + DateTime.Now.ToString("yyyy")</Value>
                     <Style>
-                      <FontSize>12pt</FontSize>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>10pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>Black</Color>
                       <TextDecoration>None</TextDecoration>
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style><TextAlign>Right</TextAlign></Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>9.27778cm</Top>
-            <Left>1.42558cm</Left>
+            <Top>1.35cm</Top>
+            <Left>11.1cm</Left>
             <Height>0.6cm</Height>
-            <Width>7.55353cm</Width>
+            <Width>7.5cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -79,9 +178,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="Người in: " + Parameters!NguoiIn.Value</Value>
+                    <Value>="Người lập phiếu: " + Parameters!NguoiIn.Value</Value>
                     <Style>
-                      <FontSize>12pt</FontSize>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <Color>Black</Color>
                       <TextDecoration>None</TextDecoration>
                     </Style>
                   </TextRun>
@@ -90,10 +191,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>9.27778cm</Top>
-            <Left>9.75995cm</Left>
+            <Top>12.25cm</Top>
+            <Left>10.65cm</Left>
             <Height>0.6cm</Height>
-            <Width>7.20958cm</Width>
+            <Width>7.9cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -112,24 +213,26 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>HÓA ĐƠN</Value>
+                    <Value>HÓA ĐƠN TIỀN PHẠT</Value>
                     <Style>
-                      <FontSize>12pt</FontSize>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>20pt</FontSize>
                       <FontWeight>Bold</FontWeight>
+                      <Color>Black</Color>
                       <TextDecoration>None</TextDecoration>
                     </Style>
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Center</TextAlign>
+                  <TextAlign>Left</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>1.79572cm</Top>
-            <Left>6.69078cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.60583cm</Width>
+            <Top>3.05cm</Top>
+            <Left>2.4cm</Left>
+            <Height>0.95cm</Height>
+            <Width>16.2cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -148,24 +251,26 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>ĐÓNG PHẠT TRỄ HẠN TRẢ SÁCH</Value>
+                    <Value>THÔNG TIN QUÁ HẠN</Value>
                     <Style>
-                      <FontSize>8pt</FontSize>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>11pt</FontSize>
                       <FontWeight>Bold</FontWeight>
+                      <Color>Black</Color>
                       <TextDecoration>None</TextDecoration>
                     </Style>
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Center</TextAlign>
+                  <TextAlign>Left</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>2.57211cm</Top>
-            <Left>4.57412cm</Left>
+            <Top>4.55cm</Top>
+            <Left>10.65cm</Left>
             <Height>0.6cm</Height>
-            <Width>7.34188cm</Width>
+            <Width>7.95cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -184,9 +289,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="Người bị phạt: " + Parameters!NguoiBiPhat.Value</Value>
+                    <Value>="Họ tên: " + Parameters!NguoiBiPhat.Value</Value>
                     <Style>
-                      <FontSize>12pt</FontSize>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>10pt</FontSize>
+                      <Color>Black</Color>
                       <TextDecoration>None</TextDecoration>
                     </Style>
                   </TextRun>
@@ -195,10 +302,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox6</rd:DefaultName>
-            <Top>4.41537cm</Top>
-            <Left>1.45203cm</Left>
-            <Height>0.6cm</Height>
-            <Width>7.89751cm</Width>
+            <Top>5.35cm</Top>
+            <Left>2.4cm</Left>
+            <Height>0.7cm</Height>
+            <Width>7.95cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -219,7 +326,9 @@
                   <TextRun>
                     <Value>="Hạn trả: " + Parameters!HanTra.Value</Value>
                     <Style>
-                      <FontSize>12pt</FontSize>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>10pt</FontSize>
+                      <Color>Black</Color>
                       <TextDecoration>None</TextDecoration>
                     </Style>
                   </TextRun>
@@ -228,10 +337,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
-            <Top>4.41537cm</Top>
-            <Left>9.75995cm</Left>
-            <Height>0.6cm</Height>
-            <Width>7.20958cm</Width>
+            <Top>5.35cm</Top>
+            <Left>10.65cm</Left>
+            <Height>0.65cm</Height>
+            <Width>7.95cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -250,9 +359,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="Số ngày quá hạn: " + Parameters!SoNgay.Value.ToString() + " ngày"</Value>
+                    <Value>="Quá hạn: " + Parameters!SoNgay.Value.ToString() + " ngày"</Value>
                     <Style>
-                      <FontSize>12pt</FontSize>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>10pt</FontSize>
+                      <Color>Black</Color>
                       <TextDecoration>None</TextDecoration>
                     </Style>
                   </TextRun>
@@ -261,10 +372,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox8</rd:DefaultName>
-            <Top>5.81766cm</Top>
-            <Left>9.75995cm</Left>
-            <Height>0.6cm</Height>
-            <Width>7.20958cm</Width>
+            <Top>6.05cm</Top>
+            <Left>10.65cm</Left>
+            <Height>0.65cm</Height>
+            <Width>7.95cm</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -283,9 +394,12 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="Số tiền phạt: " +  Parameters!SoNgay.Value.ToString() + IIf(Parameters!SoNgay.Value = 0, " VNĐ", "000 VNĐ")</Value>
+                    <Value>="TỔNG CỘNG:   " + Format(CInt(Parameters!SoNgay.Value) * 1000, "#,##0") + " VNĐ"</Value>
                     <Style>
-                      <FontSize>12pt</FontSize>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>15pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>Black</Color>
                       <TextDecoration>None</TextDecoration>
                     </Style>
                   </TextRun>
@@ -294,19 +408,20 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>7.16703cm</Top>
-            <Left>1.45203cm</Left>
-            <Height>0.6cm</Height>
-            <Width>7.89751cm</Width>
+            <Top>10.35cm</Top>
+            <Left>10.65cm</Left>
+            <Height>0.9cm</Height>
+            <Width>7.95cm</Width>
             <ZIndex>8</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
+              <VerticalAlign>Middle</VerticalAlign>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
+              <PaddingTop>4pt</PaddingTop>
+              <PaddingBottom>4pt</PaddingBottom>
             </Style>
           </Textbox>
           <Textbox Name="Textbox10">
@@ -318,7 +433,9 @@
                   <TextRun>
                     <Value>="Email: " + Parameters!Email.Value</Value>
                     <Style>
-                      <FontSize>12pt</FontSize>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>10pt</FontSize>
+                      <Color>Black</Color>
                       <TextDecoration>None</TextDecoration>
                     </Style>
                   </TextRun>
@@ -327,10 +444,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox10</rd:DefaultName>
-            <Top>5.81766cm</Top>
-            <Left>1.45203cm</Left>
-            <Height>0.6cm</Height>
-            <Width>7.89751cm</Width>
+            <Top>6.05cm</Top>
+            <Left>2.4cm</Left>
+            <Height>0.65cm</Height>
+            <Width>7.95cm</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
@@ -343,10 +460,10 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>4.19791in</Height>
+        <Height>13cm</Height>
         <Style />
       </Body>
-      <Width>6.92709in</Width>
+      <Width>20.8cm</Width>
       <Page>
         <PageHeader>
           <Height>2.54cm</Height>
@@ -370,8 +487,8 @@
         </PageFooter>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
-        <LeftMargin>2cm</LeftMargin>
-        <RightMargin>2cm</RightMargin>
+        <LeftMargin>0cm</LeftMargin>
+        <RightMargin>0cm</RightMargin>
         <TopMargin>2cm</TopMargin>
         <BottomMargin>2cm</BottomMargin>
         <ColumnSpacing>0.13cm</ColumnSpacing>

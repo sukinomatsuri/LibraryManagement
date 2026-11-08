@@ -1,20 +1,19 @@
 ﻿using Microsoft.Reporting.WinForms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyThuVienApp
 {
     public partial class frmReportHoaDonPhat : Form
     {
-        private int ID_NguoiBiPhat, soNgay;
-        private string hanTra;
+        private readonly int ID_NguoiBiPhat, soNgay;
+        private readonly string hanTra;
+        private byte[] pdfBytes;
+        private Image previewImage;
 
         public frmReportHoaDonPhat()
         {
@@ -32,23 +31,85 @@ namespace QuanLyThuVienApp
 
         private void frmReportHoaDonPhat_Load(object sender, EventArgs e)
         {
-            QLTVEntities db = new QLTVEntities();
+            try
+            {
+                NguoiDung nguoiBiPhat;
+                NguoiDung nguoiIn;
+                using (var db = new QLTVEntities())
+                {
+                    nguoiBiPhat = db.NguoiDungs.FirstOrDefault(p => p.ID == ID_NguoiBiPhat);
+                    nguoiIn = db.NguoiDungs.FirstOrDefault(p => p.ID == frmMainAdmin.ID);
+                }
+                if (nguoiBiPhat == null || nguoiIn == null)
+                {
+                    MessageBox.Show("Không tìm thấy thông tin để lập hóa đơn tiền phạt.");
+                    Close();
+                    return;
+                }
+                using (var report = new LocalReport())
+                {
+                    report.ReportEmbeddedResource = "QuanLyThuVienApp.rpHoaDonPhat.rdlc";
+                    report.SetParameters(new[]
+                    {
+                        new ReportParameter("NguoiIn", nguoiIn.HoTen ?? ""),
+                        new ReportParameter("NguoiBiPhat", nguoiBiPhat.HoTen ?? ""),
+                        new ReportParameter("HanTra", hanTra ?? ""),
+                        new ReportParameter("Email", nguoiBiPhat.Email ?? ""),
+                        new ReportParameter("SoNgay", soNgay.ToString())
+                    });
+                    pdfBytes = report.Render("PDF");
+                    var imageBytes = report.Render("IMAGE",
+                        "<DeviceInfo><OutputFormat>PNG</OutputFormat><DpiX>160</DpiX><DpiY>160</DpiY></DeviceInfo>");
+                    using (var stream = new MemoryStream(imageBytes))
+                    using (var image = Image.FromStream(stream))
+                        previewImage = new Bitmap(image);
+                }
+                picHoaDon.Image = previewImage;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Không thể hiển thị hóa đơn: " + ex.Message);
+                Close();
+            }
+        }
 
-            NguoiDung nguoiBiPhat = db.NguoiDungs.Where(p => p.ID == ID_NguoiBiPhat).FirstOrDefault();
-            if (nguoiBiPhat == null) return;
+        private void btnLuuPdf_Click(object sender, EventArgs e)
+        {
+            if (pdfBytes == null) return;
+            using (var dialog = new SaveFileDialog())
+            {
+                dialog.Filter = "PDF (*.pdf)|*.pdf";
+                dialog.FileName = "HoaDonTienPhat.pdf";
+                if (dialog.ShowDialog(this) == DialogResult.OK)
+                    File.WriteAllBytes(dialog.FileName, pdfBytes);
+            }
+        }
 
-            NguoiDung nguoiIn = db.NguoiDungs.Where(p => p.ID == frmMainAdmin.ID).FirstOrDefault();
-            if (nguoiIn == null) return;
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            if (previewImage == null) return;
+            using (var document = new PrintDocument())
+            {
+                document.DocumentName = "Hóa đơn tiền phạt";
+                document.DefaultPageSettings.PaperSize = new PaperSize("A4", 827, 1169);
+                document.PrintPage += (source, args) =>
+                {
+                    args.Graphics.DrawImage(previewImage, args.MarginBounds);
+                    args.HasMorePages = false;
+                };
+                using (var dialog = new PrintDialog())
+                {
+                    dialog.Document = document;
+                    if (dialog.ShowDialog(this) == DialogResult.OK)
+                        document.Print();
+                }
+            }
+        }
 
-            ReportParameter[] para = new ReportParameter[5];
-            para[0] = new ReportParameter("NguoiIn", nguoiIn.HoTen);
-            para[1] = new ReportParameter("NguoiBiPhat", nguoiBiPhat.HoTen);
-            para[2] = new ReportParameter("HanTra", hanTra);
-            para[3] = new ReportParameter("Email", nguoiBiPhat.Email);
-            para[4] = new ReportParameter("SoNgay", soNgay.ToString());
-
-            reportViewer1.LocalReport.SetParameters(para);
-            this.reportViewer1.RefreshReport();
+        private void frmReportHoaDonPhat_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            picHoaDon.Image = null;
+            if (previewImage != null) previewImage.Dispose();
         }
     }
 }
